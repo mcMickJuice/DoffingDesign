@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexandra Doffing Design</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="logo-container nav">
+            <a href="/">
+                <img src="/Content/images/logo.png" alt="Doffing Design" />
+            </a>
+        </div>
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    <div class="footer">
+        <div class="social">
+            <a class="dribbble" href="https://dribbble.com/alexandradoffing" target="_blank"></a>
+            <a class="twitter" href="https://twitter.com/doffingdesign" target="_blank"></a>
+            <a class="instagram" href="http://instagram.com/doffingdesign" target="_blank"></a>
+            <a class="linkedin" href="https://www.linkedin.com/pub/alexandra-doffing/20/2b3/624" target="_blank"></a>
+        </div><!-- end social -->
+        <p>&copy; 2015 Alexandra Doffing Design, LLC</p>
+        <p>All Rights Reserved</p>
+    </div><!-- end footer -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
