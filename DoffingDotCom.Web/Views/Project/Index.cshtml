@@ -1,0 +1,16 @@
+﻿@model IEnumerable<DoffingDesign.Service.Models.Project>
+
+@{
+    ViewBag.Title = "Projects";
+}
+
+<h2>Index</h2>
+@foreach (var proj in @Model.OrderBy(p => p.SortOrder))
+{
+
+    <div class="col-md-4">
+        <h3>@proj.Title</h3>
+    </div>
+    
+}
+

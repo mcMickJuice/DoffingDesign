@@ -6,6 +6,10 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Autofac;
+using Autofac.Core;
+using Autofac.Integration.Mvc;
+using DoffingDesign.Service;
 
 namespace DoffingDotCom.Web
 {
@@ -18,6 +22,14 @@ namespace DoffingDotCom.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            var builder = new Autofac.ContainerBuilder();
+            builder.RegisterControllers(typeof (MvcApplication).Assembly);
+            builder.RegisterType<InMemoryProjectService>().As<IProjectService>();
+
+            var container = builder.Build();
+
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }
     }
 }
