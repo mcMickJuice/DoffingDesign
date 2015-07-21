@@ -16,13 +16,13 @@ namespace DoffingDotCom.Web
             routes.MapRoute(
                 name: "ProjectSpecific",
                 url: "Project/{projectType}/{projectId}",
-                defaults: new {controller = "Project", action = "Index", projectId = UrlParameter.Optional}
+                defaults: new {controller = "Project", action = "Project"}
                 );
 
             routes.MapRoute(
                 name: "ProjectTypeIndex",
                 url: "Project/{projectType}",
-                defaults: new {controller = "Project", action = "Index", projectType = "Vector"}
+                defaults: new {controller = "Project", action = "IndexByType"}
                 );
 
             routes.MapRoute(

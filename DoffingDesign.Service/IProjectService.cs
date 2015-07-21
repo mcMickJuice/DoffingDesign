@@ -12,5 +12,6 @@ namespace DoffingDesign.Service
         IEnumerable<Project> GetActiveProjects();
         Project GetProjectByName(string projectName);
         IEnumerable<Project> GetProjectByTag(string tag);
+        IEnumerable<Project> GetProjectsByType(string projectType);
     }
 }

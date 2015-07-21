@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DoffingDesign.Service;
+using DoffingDotCom.Web.Models.Project;
 
 namespace DoffingDotCom.Web.Controllers
 {
@@ -23,13 +24,27 @@ namespace DoffingDotCom.Web.Controllers
             return View(projects);
         }
 
-        public ActionResult Project(string projectName)
+        public ActionResult IndexByType(string projectType)
         {
-            var project = _projectService.GetProjectByName(projectName);
+            var projects = _projectService.GetProjectsByType(projectType);
+
+            if (!projects.Any())
+            {
+                return View("ProjectNotFound");
+            }
+
+            var vm = new ProjectListViewModel(projectType, projects);
+
+            return View(vm);
+        }
+
+        public ActionResult Project(string projectId)
+        {
+            var project = _projectService.GetProjectByName(projectId);
 
             if (project == null)
             {
-                RedirectToAction("ProjectNotFound",new {projectName});
+                RedirectToAction("ProjectNotFound",new {projectName = projectId});
             }
             return View(project);
         }

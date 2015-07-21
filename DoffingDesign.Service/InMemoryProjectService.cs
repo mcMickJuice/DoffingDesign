@@ -31,7 +31,23 @@ namespace DoffingDesign.Service
             {
                 ProjectId = "project3",
                 Title = "Project 3",
-                ProjectHtml = "<h2>Project 3 Here</h2><p>I'm a paragraph!</p>",
+                ProjectHtml = "<h2>Project 3 Vector Here</h2><p>I'm a paragraph!</p>",
+                ProjectType = ProjectType.Vector,
+                SortOrder = 3
+            },
+            new Project()
+            {
+                ProjectId = "project2",
+                Title ="Project 2",
+                ProjectHtml = "<h2>Project 4 Vector Here</h2><p>I'm a paragraph!</p>",
+                ProjectType = ProjectType.Vector,
+                SortOrder = 2
+            },
+            new Project()
+            {
+                ProjectId = "project3",
+                Title = "Project 3",
+                ProjectHtml = "<h2>Project 5 Here</h2><p>I'm a paragraph!</p>",
                 ProjectType = ProjectType.Drawing,
                 SortOrder = 3
             },
@@ -53,6 +69,24 @@ namespace DoffingDesign.Service
         public IEnumerable<Project> GetProjectByTag(string tag)
         {
             throw new NotImplementedException();
+        }
+
+        public IEnumerable<Project> GetProjectsByType(string projectType)
+        {
+            IEnumerable<Project> projects;
+            if (string.Equals(projectType, "Drawings"))
+            {
+                projects = _allProjects.Where(p => p.ProjectType == ProjectType.Drawing);
+            } else if (string.Equals(projectType, "Vector"))
+            {
+                projects = _allProjects.Where(p => p.ProjectType == ProjectType.Vector);
+            }
+            else
+            {
+                projects = new Project[0];
+            }
+
+            return projects;
         }
     }
 }
