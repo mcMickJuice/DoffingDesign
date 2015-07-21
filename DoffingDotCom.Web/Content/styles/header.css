@@ -18,7 +18,7 @@
 .header .logo {
   height: 90px;
 }
-.header .logo > div {
+.header .logo div {
   display: inline-block;
 }
 .header .logo div:first-child {
