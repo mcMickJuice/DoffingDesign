@@ -1,0 +1,52 @@
+﻿@import "global.less";
+
+@header-height: 90px;
+
+.header {
+  height: @header-height;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: @font-color;
+
+  .unstyled-link;
+
+  .logo {
+    height: 90px;
+    > div {
+      display: inline-block;
+    }
+    div:first-child {
+      height: 68px;
+      width: 82px;
+      background-image: url(http://i.imgur.com/lLwODrd.png);
+      background-repeat: no-repeat;
+    }
+    ul { //todo get correct font
+    padding-left: 8px;
+      list-style: none;
+          li {
+            text-transform: uppercase;
+            line-height: 25px;
+            letter-spacing: 2px;
+            font-size: 16px;
+            .header-font
+      }
+    }
+  
+  }
+  div.navigation {
+    position: relative;
+    height: @header-height - 1px;
+      nav {
+    position:absolute;
+    bottom: 0;
+    li {
+      display: inline-block;
+      &:not(:last-child) {
+        margin-right: 40px ;
+      }
+    }
+  }
+  }
+
+}

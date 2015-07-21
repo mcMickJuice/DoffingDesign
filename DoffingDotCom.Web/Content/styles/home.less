@@ -1,0 +1,77 @@
+﻿@import "global.less";
+
+@main-section-height: 400px;
+@side-image-height: @main-section-height *.5;
+
+.overlay-hover {
+  &:hover .overlay {
+    opacity: 1;
+  }
+}
+
+p {
+  font-size: 16px;
+}
+
+.main {
+    // height: @main-section-height; //remove fixed yo! or have it via media query
+    margin-top: 30px;
+
+    img {
+        display: block;
+        margin: auto;
+    }
+
+    .unstyled-link;
+
+    .overlay {
+        opacity: 0;
+        -moz-transition: opacity .25s ease;
+        -o-transition: opacity .25s ease;
+        -webkit-transition: opacity .25s ease;
+        transition: opacity .25s ease;
+        background: rgba(265,265,265,.90);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0; //account for bootstrap 15px padding to cols
+        text-align: center;
+
+        span.ruler {
+            display: inline-block;
+            height: 1px;
+            width: 50px;
+            border-top: 1px solid black;
+        }
+
+        p {
+            line-height: 35px;
+        }
+    }
+
+    .main-image {
+        height: @main-section-height;
+        .overlay-hover;
+
+        .overlay {
+            padding-top: @main-section-height * .4;
+        }
+    }
+
+    .side-images {
+        > div {
+            height: @side-image-height;
+
+            .overlay {
+                padding-top: @side-image-height * .25;
+            }
+
+            .overlay-hover
+        }
+
+        .drawing {
+            margin-bottom: 12px;
+        }
+    }
+}
