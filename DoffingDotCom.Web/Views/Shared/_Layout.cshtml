@@ -7,48 +7,66 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
+    @RenderSection("head",false)
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="logo-container nav">
-            <a href="/">
-                <img src="/Content/images/logo.png" alt="Doffing Design" />
-            </a>
-        </div>
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+<div class="header">
+    <div class="container">
+        <div class="row">
+            <div class="logo col-xs-5">
+                <div>
+                </div>
+                <div>
+                    <ul>
+                        <li>Alexandra</li>
+                        <li>Doffing</li>
+                        <li>Design</li>
+                    </ul>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Projects", "Index", "Project")</li>
-                </ul>
+            <div class="navigation col-xs-7">
+                <nav>
+                    <ul>
+                        <li>@Html.ActionLink("About","About","Home")</li>
+                        <li>@Html.ActionLink("Drawings", "Drawings","Project")</li>
+                        <li>@Html.ActionLink("Vector", "Vector", "Project")</li>
+                        <li>Blog</li>
+                        <li>Shop</li>
+                        <li>@Html.ActionLink("Contact","Contact","Home")</li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-    </div>
+</div>
+
+
+<div class="container body-content">
+    @RenderBody()
+</div>
+<div class="container">
     <div class="footer">
-        <div class="social">
-            <a class="dribbble" href="https://dribbble.com/alexandradoffing" target="_blank"></a>
-            <a class="twitter" href="https://twitter.com/doffingdesign" target="_blank"></a>
-            <a class="instagram" href="http://instagram.com/doffingdesign" target="_blank"></a>
-            <a class="linkedin" href="https://www.linkedin.com/pub/alexandra-doffing/20/2b3/624" target="_blank"></a>
-        </div><!-- end social -->
-        <p>&copy; 2015 Alexandra Doffing Design, LLC</p>
-        <p>All Rights Reserved</p>
-    </div><!-- end footer -->
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+        <div class="copyright">
+            &copy; 2015 <span>&middot;</span> Alexandra Doffing Design, LLC <span>&middot;</span> All Rights Reserved
+        </div>
+        <div class="pull-right social-links">
+            <ul>
+                <li class="tumblr"></li>
+                <li class="dribbble"></li>
+                <li class="instagram"></li>
+                <li class="behance"></li>
+                <li class="linkedin"></li>
+                <li class="facebook"></li>
+                <li class="twitter"></li>
+                <li class="etsy"></li>
+                <li class="society6"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)
 </body>
 </html>

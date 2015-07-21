@@ -25,9 +25,14 @@ namespace DoffingDotCom.Web
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css",
-                      "~/Content/footer.css",
+                      "~/Content/styles/site.css",
+                      "~/Content/styles/footer.css",
+                      "~/Content/styles/header.css",
                       "~/Content/about.css"));
+
+            bundles.Add(new StyleBundle("~/Content/homeCss").Include(
+                        "~/Content/styles/home.css"
+                    ));
         }
     }
 }

@@ -191,16 +191,65 @@
     <Content Include="Content\about.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\footer.css" />
     <Content Include="Content\images\about-alex.png" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\sm-sprite-1.jpg" />
+    <Content Include="Content\styles\footer.css">
+      <DependentUpon>footer.less</DependentUpon>
+    </Content>
+    <Content Include="Content\styles\footer.min.css">
+      <DependentUpon>footer.css</DependentUpon>
+    </Content>
+    <Content Include="Content\styles\global.css">
+      <DependentUpon>global.less</DependentUpon>
+    </Content>
+    <Content Include="Content\styles\global.min.css">
+      <DependentUpon>global.css</DependentUpon>
+    </Content>
+    <Content Include="Content\styles\header.css">
+      <DependentUpon>header.less</DependentUpon>
+    </Content>
+    <Content Include="Content\styles\header.min.css">
+      <DependentUpon>header.css</DependentUpon>
+    </Content>
+    <Content Include="Content\styles\home.css">
+      <DependentUpon>home.less</DependentUpon>
+    </Content>
+    <Content Include="Content\styles\home.min.css">
+      <DependentUpon>home.css</DependentUpon>
+    </Content>
+    <Content Include="Content\styles\site.css">
+      <DependentUpon>site.less</DependentUpon>
+    </Content>
+    <Content Include="Content\styles\site.min.css">
+      <DependentUpon>site.css</DependentUpon>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\styles\site.less" />
+    <Content Include="Content\styles\site.css.map">
+      <DependentUpon>site.css</DependentUpon>
+    </Content>
+    <Content Include="Content\styles\global.less" />
+    <Content Include="Content\styles\global.css.map">
+      <DependentUpon>global.css</DependentUpon>
+    </Content>
+    <Content Include="Content\styles\header.less" />
+    <Content Include="Content\styles\header.css.map">
+      <DependentUpon>header.css</DependentUpon>
+    </Content>
+    <Content Include="Content\styles\footer.less" />
+    <Content Include="Content\styles\footer.css.map">
+      <DependentUpon>footer.css</DependentUpon>
+    </Content>
+    <Content Include="Content\styles\home.less" />
+    <Content Include="Content\styles\home.css.map">
+      <DependentUpon>home.css</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

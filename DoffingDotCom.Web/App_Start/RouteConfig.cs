@@ -14,6 +14,18 @@ namespace DoffingDotCom.Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "ProjectSpecific",
+                url: "Project/{projectType}/{projectId}",
+                defaults: new {controller = "Project", action = "Index", projectId = UrlParameter.Optional}
+                );
+
+            routes.MapRoute(
+                name: "ProjectTypeIndex",
+                url: "Project/{projectType}",
+                defaults: new {controller = "Project", action = "Index", projectType = "Vector"}
+                );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
