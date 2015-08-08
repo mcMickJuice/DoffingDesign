@@ -18,6 +18,9 @@ p {
   display: block;
   margin: auto;
 }
+.main .spacer {
+  height: 30px;
+}
 .main a {
   color: initial;
   text-decoration: none;
