@@ -1,0 +1,52 @@
+﻿@text-color: #414042;
+@link-color: #56d4c3;
+
+.italicize {
+  font-style: italic;
+}
+
+.project-view {
+  p {
+    font-family: "Georgia Regular";
+    line-height: 24px;
+    color: @text-color;
+    font-size: 16px;
+    margin: 15px 0;
+  }
+  
+  h1{
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  h2 {
+    font-size: 16px;
+    .italicize
+  }
+  
+  h3 {
+    text-transform: uppercase;
+    font-size: 16px;
+  }
+  
+  a {
+    color: @link-color;
+    .italicize
+  }
+  
+  .main-image {
+    
+    img {
+      margin: auto;
+      display: block;
+    }
+  }
+  
+  .purchase-detail {
+    p {
+      color: darken(@text-color, -40%);
+      .italicize
+    }
+  }
+}

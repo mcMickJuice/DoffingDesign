@@ -13,13 +13,23 @@ namespace DoffingDesign.Service.Models
         public string ProjectMarkdown { get; set; }
 
         public IEnumerable<ProjectItem> ProjectItems { get; set; }
+        public string Society6Id { get; set; }
+        public string Society6Link { get; set; }
+        private string _templateName;
+
+        public string ViewName
+        {
+            get { return string.Format("_{0}", _templateName); }
+            set { _templateName = value; }
+        }
     }
 
     public class ProjectItem
     {
         public string ImageName { get; set; }
         public string ImageCaption { get; set; }
+        public string AltText { get; set; }
         public bool IsThumb { get; set; }
-        public string ImageId { get; set; } //Url, key for cloud service, etc.
+        public string ImageUrl { get; set; } //Url, key for cloud service, etc.
     }
 }

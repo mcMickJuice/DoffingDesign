@@ -219,6 +219,12 @@
     <Content Include="Content\styles\home.min.css">
       <DependentUpon>home.css</DependentUpon>
     </Content>
+    <Content Include="Content\styles\project-view.css">
+      <DependentUpon>project-view.less</DependentUpon>
+    </Content>
+    <Content Include="Content\styles\project-view.min.css">
+      <DependentUpon>project-view.css</DependentUpon>
+    </Content>
     <Content Include="Content\styles\site.css">
       <DependentUpon>site.less</DependentUpon>
     </Content>
@@ -251,8 +257,11 @@
     <Content Include="Content\styles\home.css.map">
       <DependentUpon>home.css</DependentUpon>
     </Content>
-    <None Include="Properties\PublishProfiles\TestBuild.pubxml" />
-    <None Include="Properties\PublishProfiles\TestBuildLocal.pubxml" />
+    <Content Include="Content\styles\project-view.less" />
+    <Content Include="Content\styles\project-view.css.map">
+      <DependentUpon>project-view.css</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\LocalDeploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -306,6 +315,8 @@
     <Content Include="Views\Project\Project.cshtml" />
     <Content Include="Views\Project\ProjectNotFound.cshtml" />
     <Content Include="Views\Project\IndexByType.cshtml" />
+    <Content Include="Views\Project\_DescriptionOnRight.cshtml" />
+    <Content Include="Views\Project\_DescriptionOnLeft.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,2 +1,9 @@
-﻿@model DoffingDesign.Service.Models.Project
+﻿@section head{
+    @Styles.Render("~/Content/projectViewCss")
+}
+
+
+@model DoffingDesign.Service.Models.Project
+
+@Html.Partial(Model.ViewName,Model)
 

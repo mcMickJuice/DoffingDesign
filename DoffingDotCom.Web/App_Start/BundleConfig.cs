@@ -33,6 +33,9 @@ namespace DoffingDotCom.Web
             bundles.Add(new StyleBundle("~/Content/homeCss").Include(
                         "~/Content/styles/home.css"
                     ));
+
+            bundles.Add(new StyleBundle("~/Content/projectViewCss")
+                .Include("~/Content/styles/project-view.css"));
         }
     }
 }

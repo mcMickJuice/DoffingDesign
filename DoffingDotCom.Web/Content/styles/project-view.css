@@ -1,0 +1,36 @@
+﻿.italicize {
+  font-style: italic;
+}
+.project-view p {
+  font-family: "Georgia Regular";
+  line-height: 24px;
+  color: #414042;
+  font-size: 16px;
+  margin: 15px 0;
+}
+.project-view h1 {
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: bold;
+}
+.project-view h2 {
+  font-size: 16px;
+  font-style: italic;
+}
+.project-view h3 {
+  text-transform: uppercase;
+  font-size: 16px;
+}
+.project-view a {
+  color: #56d4c3;
+  font-style: italic;
+}
+.project-view .main-image img {
+  margin: auto;
+  display: block;
+}
+.project-view .purchase-detail p {
+  color: #a7a6a8;
+  font-style: italic;
+}
+/*# sourceMappingURL=project-view.css.map */
