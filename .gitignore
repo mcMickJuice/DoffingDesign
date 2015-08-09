@@ -206,3 +206,6 @@ FakesAssemblies/
 
 # sh.exe.stackdump file?
 *.stackdump
+
+# secrets folder
+[Ss]ecret*/
