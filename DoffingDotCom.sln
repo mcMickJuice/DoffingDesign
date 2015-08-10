@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoffingDesign.DAL", "Doffin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoffingDesign.Service", "DoffingDesign.Service\DoffingDesign.Service.csproj", "{D06C6639-7C03-4E8B-9B68-3C1832FD4A1C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoffingDesign.Test", "DoffingDesign.Test\DoffingDesign.Test.csproj", "{C0A21C7B-8DBA-4178-8F48-5EB5ED9E7711}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D06C6639-7C03-4E8B-9B68-3C1832FD4A1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D06C6639-7C03-4E8B-9B68-3C1832FD4A1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D06C6639-7C03-4E8B-9B68-3C1832FD4A1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0A21C7B-8DBA-4178-8F48-5EB5ED9E7711}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0A21C7B-8DBA-4178-8F48-5EB5ED9E7711}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0A21C7B-8DBA-4178-8F48-5EB5ED9E7711}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0A21C7B-8DBA-4178-8F48-5EB5ED9E7711}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

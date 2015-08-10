@@ -1,4 +1,4 @@
-﻿namespace DoffingDotCom.Web.Models.Security
+﻿namespace DoffingDesign.Service.Security
 {
     public class DbAccess
     {

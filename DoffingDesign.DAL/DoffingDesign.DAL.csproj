@@ -30,8 +30,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -39,8 +48,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="EntityModels\DoffingDotComModel.cs" />
+    <Compile Include="EntityModels\IDoffingDotComModel.cs" />
+    <Compile Include="EntityModels\Project.cs" />
+    <Compile Include="EntityModels\ProjectItem.cs" />
+    <Compile Include="EntityModels\ProjectTemplate.cs" />
+    <Compile Include="EntityModels\ThirdPartySiteInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlProjectService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DoffingDesign.Service\DoffingDesign.Service.csproj">
+      <Project>{d06c6639-7c03-4e8b-9b68-3c1832fd4a1c}</Project>
+      <Name>DoffingDesign.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
