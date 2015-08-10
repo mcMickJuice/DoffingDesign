@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using DoffingDesign.DAL.Models;
+using DoffingDesign.DAL.Secrets;
 
 namespace DoffingDesign.DAL.EntityModels
 {
@@ -20,9 +21,8 @@ namespace DoffingDesign.DAL.EntityModels
         }
 
         public DoffingDotComModel()
-            : base("name=DoffingDotCom")
+            : base(DefaultDatabaseInfo.ConnectionString)
         {
-            throw new InvalidOperationException("Entity must be instantiated with ");
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -36,8 +36,8 @@ namespace DoffingDesign.DAL.EntityModels
                 .HasColumnName("ProjectId");
 
             modelBuilder.Entity<Project>()
-                .HasRequired(p => p.ProjectTemplate)
-                .WithRequiredPrincipal();
+                .HasOptional(p => p.ProjectTemplate)
+                .WithOptionalDependent();
 
             modelBuilder.Entity<ProjectItem>()
                 .HasKey(p => p.Id)

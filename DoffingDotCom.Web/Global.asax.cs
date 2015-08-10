@@ -8,6 +8,8 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using Autofac;
 using Autofac.Integration.Mvc;
+using DoffingDesign.DAL;
+using DoffingDesign.DAL.EntityModels;
 using DoffingDesign.Service;
 
 namespace DoffingDotCom.Web
@@ -24,7 +26,13 @@ namespace DoffingDotCom.Web
 
             var builder = new Autofac.ContainerBuilder();
             builder.RegisterControllers(typeof (MvcApplication).Assembly);
-            builder.RegisterType<InMemoryProjectService>().As<IProjectService>();
+            builder.RegisterType<SqlProjectService>().As<IProjectService>();
+
+            //database connection
+            //TODO THIS NEEDS TO COME FROM A SERVICE!
+            
+            builder.RegisterType<DoffingDotComModel>().As<IDoffingDotComModel>()
+                .WithParameter("connectionString", "fake");
 
             var container = builder.Build();
 

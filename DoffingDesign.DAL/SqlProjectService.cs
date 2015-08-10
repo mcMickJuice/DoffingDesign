@@ -4,8 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DoffingDesign.DAL.EntityModels;
+using DoffingDesign.DAL.Models;
 using DoffingDesign.Service;
-using DoffingDesign.Service.Models;
+using Project = DoffingDesign.Service.Models.Project;
+using ProjectDb = DoffingDesign.DAL.EntityModels.Project;
+using ProjectItem = DoffingDesign.Service.Models.ProjectItem;
 
 namespace DoffingDesign.DAL
 {
@@ -20,7 +23,40 @@ namespace DoffingDesign.DAL
 
         public IEnumerable<Project> GetActiveProjects()
         {
-            throw new NotImplementedException();
+            var projects = _context.Set<ProjectDb>()
+                .Where(p => p.IsActive)
+                .ToList();
+
+            var ps = projects.Select(p =>
+            {
+                var proj = new Project
+                {
+                    ProjectId = p.Id.ToString(),
+                    ProjectItems = p.ProjectItems.Select(pi => new ProjectItem
+                    {
+                        AltText = pi.AltText,
+                        ImageCaption = pi.ImageCaption,
+                        ImageName = pi.ImageName,
+                        ImageUrl = pi.ImageUrl,
+                        IsThumb = pi.IsThumb
+                    }),
+                    ProjectMarkdown = p.ProjectMarkdown,
+                    ProjectType = p.ProjectType,
+                    SortOrder = p.SortOrder,
+                    Title = p.Title,
+                    ViewName = p.ProjectTemplate.TemplateName
+                };
+
+                var s6Info = p.ThirdPartyInfos.FirstOrDefault(t => t.ThirdPartySiteType == ThirdPartySiteType.Society6);
+
+                if (s6Info == null) return proj;
+                proj.Society6Id = s6Info.SiteId;
+                proj.Society6Link = string.Format("http://www.society6.com/{0}", s6Info.SiteId);
+
+                return proj;
+            });
+
+            return ps;
         }
 
         public Project GetProjectByName(string projectName)
@@ -35,7 +71,9 @@ namespace DoffingDesign.DAL
 
         public IEnumerable<Project> GetProjectsByType(string projectType)
         {
-            throw new NotImplementedException();
+            var projects = GetActiveProjects();
+            return projects;
+//            throw new NotImplementedException();
         }
     }
 }

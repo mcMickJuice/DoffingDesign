@@ -53,6 +53,12 @@
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DoffingDesign.DAL\DoffingDesign.DAL.csproj">
+      <Project>{3d0a19d7-3da1-4b10-8d66-086e3c2ff7df}</Project>
+      <Name>DoffingDesign.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
