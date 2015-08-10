@@ -11,6 +11,7 @@ using Autofac.Integration.Mvc;
 using DoffingDesign.DAL;
 using DoffingDesign.DAL.EntityModels;
 using DoffingDesign.Service;
+using DoffingDotCom.Web.Secrets;
 
 namespace DoffingDotCom.Web
 {
@@ -30,9 +31,9 @@ namespace DoffingDotCom.Web
 
             //database connection
             //TODO THIS NEEDS TO COME FROM A SERVICE!
-            
+            var connString = EnvironmentSettings.DevConnString;
             builder.RegisterType<DoffingDotComModel>().As<IDoffingDotComModel>()
-                .WithParameter("connectionString", "fake");
+                .WithParameter("connectionString", connString);
 
             var container = builder.Build();
 

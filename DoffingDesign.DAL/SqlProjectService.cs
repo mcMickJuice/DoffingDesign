@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DoffingDesign.DAL.EntityModels;
-using DoffingDesign.DAL.Models;
 using DoffingDesign.Service;
 using Project = DoffingDesign.Service.Models.Project;
 using ProjectDb = DoffingDesign.DAL.EntityModels.Project;
@@ -31,7 +30,7 @@ namespace DoffingDesign.DAL
             {
                 var proj = new Project
                 {
-                    ProjectId = p.Id.ToString(),
+                    ProjectId = p.AppSlug,
                     ProjectItems = p.ProjectItems.Select(pi => new ProjectItem
                     {
                         AltText = pi.AltText,

@@ -1,4 +1,4 @@
-﻿namespace DoffingDesign.DAL.Models
+﻿namespace DoffingDesign.DAL.EntityModels
 {
     public class ProjectTemplate
     {

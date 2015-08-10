@@ -2,7 +2,6 @@ using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using DoffingDesign.DAL.Models;
 using DoffingDesign.DAL.Secrets;
 
 namespace DoffingDesign.DAL.EntityModels
@@ -38,6 +37,12 @@ namespace DoffingDesign.DAL.EntityModels
             modelBuilder.Entity<Project>()
                 .HasOptional(p => p.ProjectTemplate)
                 .WithOptionalDependent();
+
+            modelBuilder.Entity<Project>()
+                .HasMany(p => p.ProjectItems)
+                .WithOptional(p => p.Project)
+                .Map(p => p.MapKey("Project_Id"))
+                .WillCascadeOnDelete(true);
 
             modelBuilder.Entity<ProjectItem>()
                 .HasKey(p => p.Id)

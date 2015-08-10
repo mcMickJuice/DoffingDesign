@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using DoffingDesign.DAL.Models;
+using DoffingDesign.DAL.EntityModels;
 using DoffingDesign.Service.Models;
 using Project = DoffingDesign.DAL.EntityModels.Project;
-using ProjectItem = DoffingDesign.DAL.Models.ProjectItem;
+using ProjectItem = DoffingDesign.DAL.EntityModels.ProjectItem;
 
 namespace DoffingDesign.DAL.Migrations
 {
@@ -103,8 +103,11 @@ namespace DoffingDesign.DAL.Migrations
                 {
                     society6Project1,
                     amazonProject1
-                }
+                },
+                IsActive = true
             };
+
+            drawingProject.AppSlug = createSlug(drawingProject.Title);
 
             var patternProject = new Project
             {
@@ -117,14 +120,27 @@ namespace DoffingDesign.DAL.Migrations
                     fancyPattern1,
                     fancyPattern2
                 },
-                ProjectTemplate = rightTemplate
+                ProjectTemplate = rightTemplate,
+                IsActive = true
             };
+
+            patternProject.AppSlug = createSlug(patternProject.Title);
 
             context.Projects.AddOrUpdate(p => p.Title,
                 drawingProject,
                 patternProject);
 
 //            context.SaveChanges();
+        }
+
+        private string createSlug(string projectTitle)
+        {
+            //should be whole list of chars not allowed in url
+            var alteredString = projectTitle.Replace("&", "");
+            var splitsOnSpace = projectTitle.Split(' ').ToList();
+            //only first four
+            splitsOnSpace = splitsOnSpace.Take(4).ToList();
+            return string.Join("-", splitsOnSpace);
         }
     }
 }

@@ -1,4 +1,4 @@
-namespace DoffingDesign.DAL.Models
+namespace DoffingDesign.DAL.EntityModels
 {
     public class ProjectItem
     {
@@ -8,5 +8,7 @@ namespace DoffingDesign.DAL.Models
         public string AltText { get; set; }
         public bool IsThumb { get; set; }
         public string ImageUrl { get; set; }
+
+        public virtual Project Project { get; set; }
     }
 }
