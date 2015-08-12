@@ -10,6 +10,7 @@ using Autofac;
 using Autofac.Integration.Mvc;
 using DoffingDesign.DAL;
 using DoffingDesign.DAL.EntityModels;
+using DoffingDesign.DAL.Mapping;
 using DoffingDesign.Service;
 using DoffingDotCom.Web.Secrets;
 
@@ -25,13 +26,15 @@ namespace DoffingDotCom.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            var builder = new Autofac.ContainerBuilder();
+            var builder = new ContainerBuilder();
             builder.RegisterControllers(typeof (MvcApplication).Assembly);
             builder.RegisterType<SqlProjectService>().As<IProjectService>();
+            builder.RegisterType<ProjectMapper>().As<IProjectMapper>();
+            builder.RegisterType<ProjectItemMapper>().As<IProjectItemMapper>();
 
             //database connection
             //TODO THIS NEEDS TO COME FROM A SERVICE!
-            var connString = EnvironmentSettings.DevConnString;
+            var connString = EnvironmentSettings.GetConnectionString();
             builder.RegisterType<DoffingDotComModel>().As<IDoffingDotComModel>()
                 .WithParameter("connectionString", connString);
 

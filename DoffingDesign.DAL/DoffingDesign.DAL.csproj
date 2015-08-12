@@ -36,6 +36,9 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="LinqKit">
+      <HintPath>..\packages\LINQKit.1.1.2\lib\net45\LinqKit.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -54,6 +57,7 @@
     <Compile Include="EntityModels\ProjectItem.cs" />
     <Compile Include="EntityModels\ProjectTemplate.cs" />
     <Compile Include="EntityModels\ThirdPartySiteInfo.cs" />
+    <Compile Include="Mapping\IProjectMapper.cs" />
     <Compile Include="Migrations\201508100418323_Initial.cs" />
     <Compile Include="Migrations\201508100418323_Initial.Designer.cs">
       <DependentUpon>201508100418323_Initial.cs</DependentUpon>
@@ -69,6 +73,10 @@
     <Compile Include="Migrations\201508101310099_AppSlug.cs" />
     <Compile Include="Migrations\201508101310099_AppSlug.Designer.cs">
       <DependentUpon>201508101310099_AppSlug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201508120052032_ChangedProjectTemplateProjectRel.cs" />
+    <Compile Include="Migrations\201508120052032_ChangedProjectTemplateProjectRel.Designer.cs">
+      <DependentUpon>201508120052032_ChangedProjectTemplateProjectRel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -97,6 +105,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201508101310099_AppSlug.resx">
       <DependentUpon>201508101310099_AppSlug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508120052032_ChangedProjectTemplateProjectRel.resx">
+      <DependentUpon>201508120052032_ChangedProjectTemplateProjectRel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

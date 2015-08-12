@@ -136,7 +136,7 @@ namespace DoffingDesign.DAL.Migrations
         private string createSlug(string projectTitle)
         {
             //should be whole list of chars not allowed in url
-            var alteredString = projectTitle.Replace("&", "");
+            var alteredString = projectTitle.ToLower().Replace("&", "");
             var splitsOnSpace = projectTitle.Split(' ').ToList();
             //only first four
             splitsOnSpace = splitsOnSpace.Take(4).ToList();

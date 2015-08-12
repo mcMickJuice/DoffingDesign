@@ -34,9 +34,13 @@ namespace DoffingDesign.DAL.EntityModels
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
                 .HasColumnName("ProjectId");
 
-            modelBuilder.Entity<Project>()
-                .HasOptional(p => p.ProjectTemplate)
-                .WithOptionalDependent();
+//            modelBuilder.Entity<Project>()
+//                .HasOptional(p => p.ProjectTemplate)
+//                .WithOptionalDependent();
+
+            modelBuilder.Entity<ProjectTemplate>()
+                .HasMany(p => p.Projects)
+                .WithRequired(p => p.ProjectTemplate);
 
             modelBuilder.Entity<Project>()
                 .HasMany(p => p.ProjectItems)
@@ -55,6 +59,8 @@ namespace DoffingDesign.DAL.EntityModels
                 .Property(p => p.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
                 .HasColumnName("ProjectTemplateId");
+
+
 
             modelBuilder.Entity<ThirdPartySiteInfo>()
                 .HasKey(p => p.Id)

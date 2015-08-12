@@ -9,9 +9,9 @@ namespace DoffingDesign.Service
 {
     public interface IProjectService
     {
-        IEnumerable<Project> GetActiveProjects();
+        IList<Project> GetActiveProjects();
         Project GetProjectByName(string projectName);
-        IEnumerable<Project> GetProjectByTag(string tag);
-        IEnumerable<Project> GetProjectsByType(string projectType);
+        IList<Project> GetProjectsByTag(string tag);
+        IList<Project> GetProjectsByType(string projectType);
     }
 }
