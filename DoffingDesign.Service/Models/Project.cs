@@ -8,7 +8,7 @@ namespace DoffingDesign.Service.Models
         public ProjectType ProjectType { get; set; }
         public string Title { get; set; }
         public int SortOrder { get; set; }
-//        public string ProjectHtml { get; set; }
+        public string ProjectHtml { get; set; }
 
         public string ProjectMarkdown { get; set; }
 

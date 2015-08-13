@@ -17,10 +17,11 @@ namespace DoffingDesign.DAL.EntityModels
         public DoffingDotComModel(string connectionString)
             : base(connectionString)
         {
+            Configuration.LazyLoadingEnabled = false;
         }
 
         public DoffingDotComModel()
-            : base(DefaultDatabaseInfo.ConnectionString)
+            : this(DefaultDatabaseInfo.ConnectionString)
         {
         }
 
@@ -33,10 +34,6 @@ namespace DoffingDesign.DAL.EntityModels
                 .Property(p => p.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
                 .HasColumnName("ProjectId");
-
-//            modelBuilder.Entity<Project>()
-//                .HasOptional(p => p.ProjectTemplate)
-//                .WithOptionalDependent();
 
             modelBuilder.Entity<ProjectTemplate>()
                 .HasMany(p => p.Projects)
@@ -59,8 +56,6 @@ namespace DoffingDesign.DAL.EntityModels
                 .Property(p => p.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
                 .HasColumnName("ProjectTemplateId");
-
-
 
             modelBuilder.Entity<ThirdPartySiteInfo>()
                 .HasKey(p => p.Id)

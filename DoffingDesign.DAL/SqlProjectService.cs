@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
+using System.Linq.Expressions;
 using DoffingDesign.DAL.EntityModels;
 using DoffingDesign.DAL.Mapping;
 using DoffingDesign.Service;
@@ -19,6 +21,13 @@ namespace DoffingDesign.DAL
         private IDoffingDotComModel _context;
         private readonly IProjectMapper _projectMapper;
 
+        private readonly Expression<Func<ProjectDb,object>>[] _includes = 
+        {
+            p => p.ProjectTemplate,
+            p => p.ProjectItems,
+            p => p.ThirdPartyInfos
+        };
+
         public SqlProjectService(IDoffingDotComModel context, IProjectMapper projectMapper)
         {
             _context = context;
@@ -27,9 +36,8 @@ namespace DoffingDesign.DAL
 
         public IList<Project> GetActiveProjects()
         {
-            var projects = _context.Set<ProjectDb>()
-                .Where(p => p.IsActive)
-                .ToList();
+            var projects = getProjects(p => p.IsActive,
+                _includes);
 
             var ps = projects.Select(_projectMapper.ToViewModel).ToList();
 
@@ -38,9 +46,8 @@ namespace DoffingDesign.DAL
 
         public Project GetProjectByName(string projectName)
         {
-            var project = _context.Set<ProjectDb>()
-                .AsExpandable()
-                .FirstOrDefault(p => projectName.ToUpper() == p.AppSlug.ToUpper()); //TODO change this
+            var project = getFirstProject(p => projectName.ToUpper() == p.AppSlug.ToUpper(),
+                _includes);
 
             return _projectMapper.ToViewModel(project);
         }
@@ -52,7 +59,7 @@ namespace DoffingDesign.DAL
 
         public IList<Project> GetProjectsByType(string projectType)
         {
-            var projectTypeDict = new Dictionary<string,ProjectType>
+            var projectTypeDict = new Dictionary<string, ProjectType>
             {
                 {"Drawings",ProjectType.Drawing},
                 {"Vector",ProjectType.Vector},
@@ -61,13 +68,39 @@ namespace DoffingDesign.DAL
 
             var type = projectTypeDict[projectType];
 
-            var projects = _context.Set<ProjectDb>()
-                    .Where(p => p.ProjectType == type)
-                    .ToList()
-                    .Select(_projectMapper.ToViewModel)
-                    .ToList();
+            var projects = getProjects(p => p.ProjectType == type,
+               _includes)
+                .Select(_projectMapper.ToViewModel)
+                .ToList();
 
             return projects;
+        }
+
+        private IList<ProjectDb> getProjects(Expression<Func<ProjectDb, bool>> predicate,
+            params Expression<Func<ProjectDb, object>>[] includes)
+        {
+            var query = _context.Set<ProjectDb>().AsQueryable();
+
+            //just like reduce in javascript!
+            query = includes.Aggregate(query,(acc,i) => acc.Include(i));
+
+            if (predicate != null)
+            {
+                query = query.Where(predicate);
+            }
+
+            return query.AsExpandable().ToList();
+        }
+
+        private ProjectDb getFirstProject(Expression<Func<ProjectDb, bool>> predicate,
+            params Expression<Func<ProjectDb, object>>[] includes)
+        {
+            var query = _context.Set<ProjectDb>().AsQueryable();
+
+            query = includes.Aggregate(query, (acc,i) => acc.Include(i));
+            ;
+
+            return query.FirstOrDefault(predicate);
         }
     }
 }

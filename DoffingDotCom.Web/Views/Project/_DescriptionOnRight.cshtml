@@ -16,23 +16,9 @@
         <div class="col-xs-1"></div>
         <div class="side-text col-xs-4">
             <div class="project-description">
-                <h1>Caps Bold 18px</h1>
-                <h2>H2 Capitalized italic 16px</h2>
-                <p>BOdy copy is georgia regular blah blah blah</p>
-                <p>
-                    The page is broken into thrid there be at least a 40px futter blach blach blach
-                </p>
-
-                <h3>Regular 16px</h3>
-
-                <p>
-                    This is what a link <a href="">will look like</a>
-                </p>
-                <p>
-                    This is what it will look like <a href="">
-                        hovered
-                    </a>
-                </p>
+                <div class="project-description">
+                    @Html.Raw(@Model.ProjectHtml)
+                </div>
             </div>
 
             <div class="purchase-detail">

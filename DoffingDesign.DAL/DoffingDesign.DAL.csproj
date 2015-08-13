@@ -58,6 +58,8 @@
     <Compile Include="EntityModels\ProjectTemplate.cs" />
     <Compile Include="EntityModels\ThirdPartySiteInfo.cs" />
     <Compile Include="Mapping\IProjectMapper.cs" />
+    <Compile Include="Mapping\ProjectItemMapper.cs" />
+    <Compile Include="Mapping\ProjectMapper.cs" />
     <Compile Include="Migrations\201508100418323_Initial.cs" />
     <Compile Include="Migrations\201508100418323_Initial.Designer.cs">
       <DependentUpon>201508100418323_Initial.cs</DependentUpon>

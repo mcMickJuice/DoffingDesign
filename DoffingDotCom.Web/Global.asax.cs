@@ -12,6 +12,7 @@ using DoffingDesign.DAL;
 using DoffingDesign.DAL.EntityModels;
 using DoffingDesign.DAL.Mapping;
 using DoffingDesign.Service;
+using DoffingDesign.Service.Markdown;
 using DoffingDotCom.Web.Secrets;
 
 namespace DoffingDotCom.Web
@@ -31,6 +32,7 @@ namespace DoffingDotCom.Web
             builder.RegisterType<SqlProjectService>().As<IProjectService>();
             builder.RegisterType<ProjectMapper>().As<IProjectMapper>();
             builder.RegisterType<ProjectItemMapper>().As<IProjectItemMapper>();
+            builder.RegisterType<MarkdownService>().As<IMarkdownService>();
 
             //database connection
             //TODO THIS NEEDS TO COME FROM A SERVICE!
