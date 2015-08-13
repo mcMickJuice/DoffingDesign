@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.Entity;
 using System.Linq.Expressions;
 using DoffingDesign.DAL.EntityModels;
@@ -11,7 +9,6 @@ using DoffingDesign.Service;
 using DoffingDesign.Service.Models;
 using Project = DoffingDesign.Service.Models.Project;
 using ProjectDb = DoffingDesign.DAL.EntityModels.Project;
-using ProjectItem = DoffingDesign.Service.Models.ProjectItem;
 using LinqKit;
 
 namespace DoffingDesign.DAL

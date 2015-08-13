@@ -1,9 +1,15 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DoffingDesign.Service.Models
 {
     public class Project
     {
+        public Project()
+        {
+            ProjectItems = new List<ProjectItem>();
+        }
+
         public string ProjectId { get; set; }
         public ProjectType ProjectType { get; set; }
         public string Title { get; set; }
@@ -21,6 +27,19 @@ namespace DoffingDesign.Service.Models
         {
             get { return string.Format("_{0}", _templateName); }
             set { _templateName = value; }
+        }
+
+        public ProjectItem ThumbProject
+        {
+            get
+            {
+                if (ProjectItems.Any(p => p.IsThumb))
+                {
+                    return ProjectItems.FirstOrDefault(p => p.IsThumb);
+                }
+
+                return ProjectItems.FirstOrDefault();
+            }
         }
     }
 

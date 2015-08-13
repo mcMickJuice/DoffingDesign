@@ -222,6 +222,12 @@
     <Content Include="Content\styles\home.min.css">
       <DependentUpon>home.css</DependentUpon>
     </Content>
+    <Content Include="Content\styles\project-index.css">
+      <DependentUpon>project-index.less</DependentUpon>
+    </Content>
+    <Content Include="Content\styles\project-index.min.css">
+      <DependentUpon>project-index.css</DependentUpon>
+    </Content>
     <Content Include="Content\styles\project-view.css">
       <DependentUpon>project-view.less</DependentUpon>
     </Content>
@@ -263,6 +269,10 @@
     <Content Include="Content\styles\project-view.less" />
     <Content Include="Content\styles\project-view.css.map">
       <DependentUpon>project-view.css</DependentUpon>
+    </Content>
+    <Content Include="Content\styles\project-index.less" />
+    <Content Include="Content\styles\project-index.css.map">
+      <DependentUpon>project-index.css</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\LocalDeploy.pubxml" />
     <None Include="Properties\PublishProfiles\mjJuiceSampleApp - FTP.pubxml" />

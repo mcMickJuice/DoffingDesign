@@ -209,3 +209,6 @@ FakesAssemblies/
 
 # secrets folder
 [Ss]ecret*/
+
+# ignore DB folder
+[Dd][Bb]/
