@@ -11,24 +11,24 @@ namespace DoffingDesign.DAL.Helpers
     {
         internal static string CreateSlug(string projectTitle)
         {
-#warning hash out create Slug, including whitelisted characters
-            //should be whole list of chars not allowed in url
-            //filter out non whitelister chars
-            var splitsOnSpace = projectTitle.ToLower().Split(' ').ToList();
-//            var splitsOnSpace = projectTitle.ToLower().Split(' ').Where(isAllowedCharacter).ToList();
-            //only first four
+            var filteredTitle = filteredString(projectTitle);
+            var splitsOnSpace = filteredTitle.ToLower().Split(' ').ToList();
+
             splitsOnSpace = splitsOnSpace.Take(4).ToList();
             return string.Join("-", splitsOnSpace);
         }
 
-        private static bool isAllowedCharacter(string val)
+        private static string filteredString(string stringIn)
         {
-            var regEx = new Regex("[0-9a-zA-Z\\s]");
-            return regEx.IsMatch(val);
+            var regEx = new Regex(@"[^0-9a-zA-Z\s]");
+
+            var filtered = regEx.Replace(stringIn, "");
+            return filtered;
         }
 
         internal static bool CompareSlug(string slug1, string slug2)
         {
+            throw new NotImplementedException();
             //do some work
             //TODO
 #warning hash out compare slug
