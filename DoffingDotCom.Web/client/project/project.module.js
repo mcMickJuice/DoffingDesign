@@ -1,0 +1,1 @@
+﻿angular.module('doffing-project', ['doffing-common-service', 'ui.router'])

@@ -3,16 +3,32 @@
     ViewBag.Title = "Project Admin";
 }
 
+@section head
+{
+    @Styles.Render("~/Content/adminCss")
+}
+
+
+@section adminNotice
+{
+    <div class="admin-notice">Admin Mode!</div>
+}
+
 <h2>Administer your Project</h2>
 
 <div ng-app="doffing-admin-module">
     <div>
         <ul>
-            <li>Create</li>
-            <li>Organize</li>
+            <li><a ui-sref="create">Create</a></li>
+@*            <li>Organize</li>*@
         </ul>
     </div>
     <div class="admin-main" ui-view>
         <!-- main-->
     </div>
 </div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/projectAdmin")
+}

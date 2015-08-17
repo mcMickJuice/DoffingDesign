@@ -1,7 +1,7 @@
 ﻿/// <reference path="../common-services/project.service.js" />
 
 
-(function(module) {
+(function(mod) {
     function DoffingHomeCtrl(doffingProjectService) {
         var self = this;
 
@@ -18,5 +18,5 @@
 
     DoffingHomeCtrl.$inject = ['doffingProjectService'];
 
-    module.controller('doffingHomeCtrl', DoffingHomeCtrl);
+    mod.controller('doffingHomeCtrl', DoffingHomeCtrl);
 })(angular.module('doffing-home'));

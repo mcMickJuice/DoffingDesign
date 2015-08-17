@@ -10,6 +10,7 @@ namespace DoffingDesign.Service.Models
             ProjectItems = new List<ProjectItem>();
         }
 
+        public int DatabaseId { get; set; }
         public string ProjectId { get; set; }
         public ProjectType ProjectType { get; set; }
         public string Title { get; set; }

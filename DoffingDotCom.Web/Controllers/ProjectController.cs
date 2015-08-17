@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using DoffingDesign.Service;
@@ -17,16 +18,16 @@ namespace DoffingDotCom.Web.Controllers
             _projectService = projectService;
         }
 
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            var projects = _projectService.GetActiveProjects();
+            var projects = await _projectService.GetActiveProjects();
 
             return View(projects);
         }
 
-        public ActionResult IndexByType(string projectType)
+        public async Task<ActionResult> IndexByType(string projectType)
         {
-            var projects = _projectService.GetProjectsByType(projectType);
+            var projects = await _projectService.GetProjectsByType(projectType);
 
             if (!projects.Any())
             {
@@ -38,9 +39,9 @@ namespace DoffingDotCom.Web.Controllers
             return View(vm);
         }
 
-        public ActionResult Project(string projectId)
+        public async Task<ActionResult> Project(string projectId)
         {
-            var project = _projectService.GetProjectByName(projectId);
+            var project = await _projectService.GetProjectByName(projectId);
 
             if (project == null)
             {

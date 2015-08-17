@@ -36,6 +36,25 @@ namespace DoffingDotCom.Web
 
             bundles.Add(new StyleBundle("~/Content/projectViewCss")
                 .Include("~/Content/styles/project-view.css"));
+
+
+            //load in project admin module only
+            bundles.Add(new StyleBundle("~/Content/adminCss"));
+
+            bundles.Add(new ScriptBundle("~/bundles/projectAdmin")
+                .Include("~/Scripts/angular.js")
+                .Include("~/Scripts/angular-ui-router.js")
+                .Include("~/client/common-services/services.module.js")
+                .IncludeDirectory("~/client/common-services","*.js",true)
+                .Include("~/client/home/home.module.js")
+                .IncludeDirectory("~/client/home", "*.js", true)
+                .Include("~/client/project/project.module.js")
+                .IncludeDirectory("~/client/project", "*.js", true)
+                .Include("~/client/app-components.module.js")
+
+                //always last!
+                .Include("~/client/doffing-admin.module.js")
+                );
         }
     }
 }

@@ -9,9 +9,11 @@ namespace DoffingDesign.Service
 {
     public interface IProjectService
     {
-        IList<Project> GetActiveProjects();
-        Project GetProjectByName(string projectName);
-        IList<Project> GetProjectsByTag(string tag);
-        IList<Project> GetProjectsByType(string projectType);
+        Task<List<Project>> GetActiveProjects();
+        Task<Project> GetProjectByName(string projectName);
+        Task<List<Project>> GetProjectsByTag(string tag);
+        Task<List<Project>> GetProjectsByType(string projectType);
+        Task<Project> UpdateProjectInfo(ProjectEditInfo project);
+        Task<int> CreateProject(ProjectEditInfo projectInfo);
     }
 }

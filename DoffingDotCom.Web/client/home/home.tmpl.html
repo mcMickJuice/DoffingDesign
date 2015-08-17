@@ -1,7 +1,16 @@
-﻿<div class="home">
+﻿<div class="admin-home">
     <h4>List of Doffing Projects</h4>
 
-    <div ng-repeat="proj in vm.projects" class="project">
-        <h4>{{proj.title}}</h4>
+    <div class="col-md-3 tile" ng-repeat="proj in vm.projects">
+        <a ui-sref="edit({id: proj.databaseId})">
+            <div>
+                <div>
+                    <img ng-src="{{proj.thumbProject.imageUrl}}" alt="{{proj.title}}"/>
+                </div>
+                <h4>{{proj.title}}</h4>
+            </div>
+        </a>
+
+        {{proj | json}}
     </div>
 </div>

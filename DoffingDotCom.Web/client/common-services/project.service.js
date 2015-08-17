@@ -1,7 +1,7 @@
 ﻿
-(function (module) {
+(function () {
     function DoffingProjectService(doffingCoreDataService) {
-        var endpoint = 'ProjectAdminApi';
+        var endpoint = 'projects';
         var _projects = [];
 
         //getAllProjects
@@ -11,11 +11,21 @@
                     return response.data;
                 });
         }
-        
+
         function getProject(id) {
-            
+            return doffingCoreDataService.get(endpoint, { id: id })
+                .then(function (response) {
+                    return response.data;
+                });
         }
 
+        function createProject(projectInfo) {
+            return doffingCoreDataService.post(endpoint, projectInfo)
+                .then(function(response) {
+                    return response.data; //should be projectId returned
+                });
+        }
+        
         function updateProject(project) {
             
         }
@@ -27,11 +37,13 @@
         return {
             getAllProjects: getAllProjects,
             getProject: getProject,
+            createProject: createProject,
             updateProject: updateProject,
-            deleteProject: deleteProject
+            deleteProject: deleteProject,
         }
     }
 
     DoffingProjectService.$inject = ['doffingCoreDataService'];
-    module.factory('doffingProjectService', DoffingProjectService);
-})(angular.module('doffing-common-service'));
+    angular.module('doffing-common-service')
+          .factory('doffingProjectService', DoffingProjectService);
+})();

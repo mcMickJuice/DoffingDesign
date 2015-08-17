@@ -18,5 +18,6 @@ namespace DoffingDesign.DAL.EntityModels
         DbEntityEntry Entry(object entity);
 
         int SaveChanges();
+        Task<int> SaveChangesAsync();
     }
 }

@@ -1,19 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
+using System.Net.Http.Formatting;
+using System.Reflection;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Autofac;
 using Autofac.Integration.Mvc;
+using Autofac.Integration.WebApi;
 using DoffingDesign.DAL;
 using DoffingDesign.DAL.EntityModels;
 using DoffingDesign.DAL.Mapping;
 using DoffingDesign.Service;
 using DoffingDesign.Service.Markdown;
 using DoffingDotCom.Web.Secrets;
+using Newtonsoft.Json.Serialization;
 
 namespace DoffingDotCom.Web
 {
@@ -33,14 +34,24 @@ namespace DoffingDotCom.Web
             builder.RegisterType<ProjectMapper>().As<IProjectMapper>();
             builder.RegisterType<ProjectItemMapper>().As<IProjectItemMapper>();
             builder.RegisterType<MarkdownService>().As<IMarkdownService>();
+            builder.RegisterType<SqlProjectEnumService>().As<IProjectEnumService>();
 
             //database connection
             //TODO THIS NEEDS TO COME FROM A SERVICE!
             var connString = EnvironmentSettings.GetConnectionString();
             builder.RegisterType<DoffingDotComModel>().As<IDoffingDotComModel>()
-                .WithParameter("connectionString", connString);
+                .WithParameter("connectionString", connString)
+                .InstancePerRequest();
+
+            //web api config
+            var httpConfiguration = GlobalConfiguration.Configuration;
+            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
+            var jsonSerializer = GlobalConfiguration.Configuration.Formatters.OfType<JsonMediaTypeFormatter>().First();
+            jsonSerializer.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 
             var container = builder.Build();
+
+            httpConfiguration.DependencyResolver = new AutofacWebApiDependencyResolver(container);
 
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }

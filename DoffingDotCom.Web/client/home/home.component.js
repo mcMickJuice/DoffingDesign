@@ -2,7 +2,7 @@
 
 
 
-(function (module) {
+(function (mod) {
     function DoffingHomeComponent() {
         return {
             templateUrl: 'client/home/home.tmpl.html',
@@ -14,5 +14,5 @@
     }
 
 
-    module.directive('doffingHome', DoffingHomeComponent);
+    mod.directive('doffingHome', DoffingHomeComponent);
 })(angular.module('doffing-home'))

@@ -1,0 +1,31 @@
+﻿<div>
+    <h3>Time to create a new project!</h3>
+
+    <label>Title</label>
+    <input type="text" ng-model="vm.project.title" placeholder="Enter a Title"/>
+    <br/>
+    <label>Project Type</label>
+    <select ng-options="projType.id as projType.projectTypeName for projType in vm.projectTypes" ng-model="vm.project.projectType">
+        <option value>Select a Project Type</option>
+    </select>
+    <br/>
+
+    <label>Project Template</label>
+    <select ng-options="template.id as template.templateName for template in vm.templates" ng-model="vm.project.templateId">
+        <option value>Select a Project Type</option>
+    </select>
+    <br />
+    <label>Project Description</label>
+    <textarea name cols="" rows="" ng-model="vm.project.projectMarkdown"></textarea>
+
+    <button type="button" ng-click="vm.createProject()"
+            placeholder="Enter some markdown here. A preview will be available below">
+        Create Project
+    </button>
+
+    <div class="markdown-preview">
+        <markdown-viewer markdown="vm.project.projectMarkdown">
+            
+        </markdown-viewer>
+    </div>
+</div>

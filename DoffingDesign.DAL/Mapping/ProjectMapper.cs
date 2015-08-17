@@ -20,6 +20,8 @@ namespace DoffingDesign.DAL.Mapping
         {
             var proj = new Project
             {
+                //TODO Use Automapper or ValuInjector!
+                DatabaseId = dbEntity.Id,
                 ProjectId = dbEntity.AppSlug,
                 ProjectItems = dbEntity.ProjectItems.Select(_itemMapper.ToViewModel),
                 ProjectMarkdown = dbEntity.ProjectMarkdown,

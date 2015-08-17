@@ -10,6 +10,7 @@
     @RenderSection("head", false)
 </head>
 <body>
+    
     <div class="header">
         <div class="container">
             <div class="row">
@@ -36,11 +37,13 @@
                             <li>Blog</li>
                             <li>Shop</li>
                             <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                            <li>@Html.ActionLink("Admin", "Index", "ProjectAdmin")</li>
                         </ul>
                     </nav>
                 </div>
             </div>
         </div>
+        @RenderSection("adminNotice", false)
     </div>
 
 
