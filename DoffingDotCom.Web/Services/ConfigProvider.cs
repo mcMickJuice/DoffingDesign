@@ -13,6 +13,11 @@ namespace DoffingDotCom.Web.Services
             get { return get("connEnvironment"); }
         }
 
+        public static string ImagePath
+        {
+            get { return get("imagePath"); }
+        }
+
         private static string get(string key)
         {
             return ConfigurationManager.AppSettings.Get(key);

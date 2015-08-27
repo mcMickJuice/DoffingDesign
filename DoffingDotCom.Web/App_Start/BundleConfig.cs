@@ -28,6 +28,9 @@ namespace DoffingDotCom.Web
                       "~/Content/styles/site.css",
                       "~/Content/styles/footer.css",
                       "~/Content/styles/header.css",
+                      "~/Content/styles/project-index.css",
+                      "~/Content/styles/project-view.css",
+                      "~/Content/styles/global.css",
                       "~/Content/about.css"));
 
             bundles.Add(new StyleBundle("~/Content/homeCss").Include(

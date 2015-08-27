@@ -1,4 +1,9 @@
-﻿@model DoffingDesign.Service.Models.Project
+﻿@using DoffingDotCom.Web.Services
+@model DoffingDesign.Service.Models.Project
+
+@{
+    var basePath = ConfigProvider.ImagePath;
+}
 
 
 
@@ -22,7 +27,7 @@
                 .OrderBy(p => p.IsThumb)
                 .ThenBy(p => p.ImageName))
             {
-                <img src="@item.ImageUrl" alt="@item.AltText" data-hover="@item.ImageCaption"/>
+                <img src="@(basePath + item.ImageUrl)" alt="@item.AltText" data-hover="@item.ImageCaption"/>
             }
 
         </div>

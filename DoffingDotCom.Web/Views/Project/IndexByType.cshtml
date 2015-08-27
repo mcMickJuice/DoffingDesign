@@ -1,7 +1,9 @@
-﻿@model DoffingDotCom.Web.Models.Project.ProjectListViewModel
+﻿@using DoffingDotCom.Web.Services
+@model DoffingDotCom.Web.Models.Project.ProjectListViewModel
 
 @{
     ViewBag.Title = @Model.ProjectType + " Projects";
+    var basePath = ConfigProvider.ImagePath;
 }
 
 <h3>@Model.ProjectType Projects</h3>
@@ -12,7 +14,7 @@
         <a href="~/Project/@Model.ProjectType/@proj.ProjectId">
             <div>
                 <div>
-                    <img src="@proj.ThumbProject.ImageUrl" alt="@proj.Title" />
+                    <img src="@(basePath + proj.ThumbProject.ImageUrl)" alt="@proj.Title" />
                 </div>
                 <h4>@proj.Title</h4>
             </div>
