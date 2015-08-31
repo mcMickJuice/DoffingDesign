@@ -217,7 +217,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\about-alex.png" />
+    <Content Include="Content\images\drawings.jpg" />
     <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\myworkspace.jpg" />
     <Content Include="Content\images\project-items\1_SimplePatterns_RetroFloral_800.png" />
     <Content Include="Content\images\project-items\1_Sketchbook_BobDylan_800.jpg" />
     <Content Include="Content\images\project-items\1_TwinCities_Minneapolis_800.png" />
@@ -268,6 +270,7 @@
     <Content Include="Content\images\project-items\Thumb_Sketchbook_Auryn_800.jpg" />
     <Content Include="Content\images\project-items\Thumb_TwinCities_Minneapolis_800.png" />
     <Content Include="Content\images\sm-sprite-1.jpg" />
+    <Content Include="Content\images\vector.jpg" />
     <Content Include="Content\styles\footer.css">
       <DependentUpon>footer.less</DependentUpon>
     </Content>
