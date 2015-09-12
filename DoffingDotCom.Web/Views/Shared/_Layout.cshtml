@@ -10,7 +10,7 @@
     @RenderSection("head", false)
 </head>
 <body>
-    
+
     <div class="header">
         <div class="container">
             <div class="row">
@@ -18,7 +18,7 @@
                     <a style="display: block;" href="/">
                         <div class="logo-image">
                         </div>
-                        <div>
+                        <div class="site-name">
                             <ul>
                                 <li>Alexandra</li>
                                 <li>Doffing</li>
@@ -28,16 +28,17 @@
                         </div>
                     </a>
                 </div>
+                <div class="site-links-icon"></div>
                 <div class="navigation col-xs-7">
-                    <nav>
+                    <nav class="site-links">
                         <ul>
                             <li>@Html.ActionLink("About", "About", "Home")</li>
                             <li><a href="~/Project/Drawings">Drawings</a></li>
                             <li><a href="~/Project/Vector">Vector</a></li>
-@*                            <li>Blog</li>*@
-@*                            <li>Shop</li>*@
+                            @*                            <li>Blog</li>*@
+                            @*                            <li>Shop</li>*@
                             <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-@*                            <li>@Html.ActionLink("Admin", "Index", "ProjectAdmin")</li>*@
+                            @*                            <li>@Html.ActionLink("Admin", "Index", "ProjectAdmin")</li>*@
                         </ul>
                     </nav>
                 </div>
@@ -57,15 +58,30 @@
             </div>
             <div class="pull-right social-links">
                 <ul>
-                    <li class="tumblr"></li>
-                    <li class="dribbble"></li>
-                    <li class="instagram"></li>
+                    <li class="tumblr">
+
+                    </li>
+                    <li class="dribbble">
+                        <a href="https://dribbble.com/alexandradoffing" target="_blank"></a>
+                    </li>
+                    <li class="instagram">
+                        <a href="http://instagram.com/doffingdesign" target="_blank"></a>
+                    </li>
                     <li class="behance"></li>
-                    <li class="linkedin"></li>
+                    <li class="linkedin">
+                        <a href="https://www.linkedin.com/pub/alexandra-doffing/20/2b3/624" target="_blank"></a>
+                    </li>
                     <li class="facebook"></li>
-                    <li class="twitter"></li>
-                    <li class="etsy"></li>
-                    <li class="society6"></li>
+                    <li class="twitter">
+                        <a href="https://twitter.com/doffingdesign" target="_blank"></a>
+                    </li>
+                    <li class="etsy">
+                        <a href="https://www.etsy.com/shop/DoffingDesign?ref=hdr_shop_menu" target="_blank"></a>
+                    </li>
+                    <li class="society6">
+                        <a href="https://society6.com/doffingdesign" target="_blank"></a>
+
+                    </li>
                 </ul>
             </div>
         </div>

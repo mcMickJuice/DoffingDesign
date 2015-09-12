@@ -1,92 +1,115 @@
 ﻿@import "global.less";
 
 .sprite-position (@index; @hover: false) {
-  @sprite-size: 27px;
-  @sprite-position: @sprite-size * @index * -1;
-  background-image: url(http://i.imgur.com/yau9Qye.png);
-  background-position-x: @sprite-position;
-  background-position-y: 0px;
-  
-  & when not (@hover = false) {
-    background-position-y: @sprite-size * -1;
-  }
-  
+    @sprite-size: 27px;
+    @sprite-position: @sprite-size * @index * -1;
+    background-image: url(http://i.imgur.com/yau9Qye.png);
+    background-position-x: @sprite-position;
+    background-position-y: 0px;
+
+    & when not (@hover = false) {
+        background-position-y: @sprite-size * -1;
+    }
 }
 
 //accepts second parameter for hover
 
 .footer {
-  .header-font;
-  font-size: 12px;
-  & > div {
-    display: inline-block;
-    text-transform: uppercase;
-  }
-  
-  .social-links {
-    ul {
-      list-style: none;
+    .header-font;
+    font-size: 12px;
+
+    & > div {
+        display: inline-block;
+        text-transform: uppercase;
     }
-    li {
-      display: inline-block;
-      height: 27px;
-      width: 27px;
-      background-repeat: no-repeat;
-      cursor: pointer;
-       &.tumblr {
-         .sprite-position(0);
-         &:hover {
-           .sprite-position(0,true);
-         }
-       }
-        &.dribbble {
-          .sprite-position(1);
-         &:hover {
-           .sprite-position(1,true);
-         }
+
+    .social-links {
+        ul {
+            list-style: none;
         }
-        &.instagram {
-          .sprite-position(2);
-         &:hover {
-           .sprite-position(2,true);
-         }
-        }
-        &.behance {
-          .sprite-position(3);
-         &:hover {
-           .sprite-position(3,true);
-         }
-        }
-        &.linkedin {
-          .sprite-position(4);
-         &:hover {
-           .sprite-position(4,true);
-         }
-        }
-        &.facebook {
-          .sprite-position(5);
-         &:hover {
-           .sprite-position(5,true);
-         }
-        }
-        &.twitter {
-          .sprite-position(6);
-         &:hover {
-           .sprite-position(6,true);
-         }
-        }
-        &.etsy {
-          .sprite-position(7);
-         &:hover {
-           .sprite-position(7,true);
-         }
-        }
-        &.society6 {
-          .sprite-position(8);
-         &:hover {
-           .sprite-position(8,true);
-         }
+
+        li {
+            display: inline-block;
+
+            a {
+                display: inline-block;
+                height: 27px;
+                width: 27px;
+                background-repeat: no-repeat;
+                cursor: pointer;
+            }
+
+            &.tumblr > a  {
+                .sprite-position(0);
+
+                &:hover {
+                    .sprite-position(0,true);
+                }
+            }
+
+            &.dribbble > a{
+                .sprite-position(1);
+
+                &:hover {
+                    .sprite-position(1,true);
+                }
+            }
+
+            &.instagram > a{
+                .sprite-position(2);
+
+                &:hover {
+                    .sprite-position(2,true);
+                }
+            }
+
+            &.behance > a{
+                .sprite-position(3);
+
+                &:hover {
+                    .sprite-position(3,true);
+                }
+            }
+
+            &.linkedin > a{
+                .sprite-position(4);
+
+                &:hover {
+                    .sprite-position(4,true);
+                }
+            }
+
+            &.facebook > a{
+                .sprite-position(5);
+
+                &:hover {
+                    .sprite-position(5,true);
+                }
+            }
+
+            &.twitter > a{
+                .sprite-position(6);
+
+                &:hover {
+                    .sprite-position(6,true);
+                }
+            }
+
+            &.etsy > a{
+                .sprite-position(7);
+
+                &:hover {
+                    .sprite-position(7,true);
+                }
+            }
+
+            &.society6 > a{
+                .sprite-position(8);
+
+                &:hover {
+                    .sprite-position(8,true);
+                }
+            }
         }
     }
-  }
 }
