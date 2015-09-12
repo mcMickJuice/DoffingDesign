@@ -10,13 +10,13 @@
 
 @foreach (var proj in @Model.Projects.OrderBy(p => p.SortOrder))
 {
-    <div class="col-md-3 tile">
+    <div class="col-sm-4 tile">
         <a href="~/Project/@Model.ProjectType/@proj.ProjectId">
-            <div>
-                <div>
-                    <img src="@(basePath + proj.ThumbProject.ImageUrl)" alt="@proj.Title" />
+            <div class="image">
+                <img src="@(basePath + proj.ThumbProject.ImageUrl)" alt="@proj.Title" />
+                <div class="project-title">
+                    <span>@proj.Title</span>
                 </div>
-                <h4>@proj.Title</h4>
             </div>
         </a>
     </div>

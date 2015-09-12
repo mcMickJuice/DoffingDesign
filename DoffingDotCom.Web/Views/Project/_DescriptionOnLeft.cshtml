@@ -24,8 +24,8 @@
         </div>
         <div class="main-image col-xs-8">
             @foreach (var item in @Model.ProjectItems
-                .OrderBy(p => p.IsThumb)
-                .ThenBy(p => p.ImageName))
+                .Where(p => p.IsThumb == false)
+                .OrderBy(p => p.ImageName))
             {
                 <img src="@(basePath + item.ImageUrl)" alt="@item.AltText" data-hover="@item.ImageCaption"/>
             }

@@ -1,12 +1,21 @@
 ﻿.tile {
   cursor: pointer;
-  margin-right: 30px;
 }
 .tile a {
   text-decoration: none;
+  color: inherit;
 }
 .tile img {
   display: block;
-  max-height: 300px;
+  /*max-height: 300px;*/
+  width: 100%;
+}
+.tile .image {
+  padding: 10px;
+}
+.tile .image .project-title {
+  text-align: center;
+  color: inherit;
+  font-size: larger;
 }
 /*# sourceMappingURL=project-index.css.map */
