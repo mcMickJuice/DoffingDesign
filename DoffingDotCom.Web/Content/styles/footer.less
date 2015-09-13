@@ -1,5 +1,7 @@
 ﻿@import "global.less";
 
+@medium-width: 991px;
+
 .sprite-position (@index; @hover: false) {
     @sprite-size: 27px;
     @sprite-position: @sprite-size * @index * -1;
@@ -12,23 +14,34 @@
     }
 }
 
-//accepts second parameter for hover
-
 .footer {
     .header-font;
-    font-size: 12px;
+    font-size: 10px;
 
     & > div {
-        display: inline-block;
+        position: relative;
+    }
+
+    .copyright {
         text-transform: uppercase;
+        letter-spacing: 2px;
+
+         @media (max-width: @medium-width) {
+            text-align: center;
+        }
     }
 
     .social-links {
-        ul {
-            list-style: none;
+        position: relative;
+        right: -30%; //align to left and slide on widht change
+
+        @media (max-width: @medium-width) {
+            margin: auto;
+            width: 45%;
+            right:0;
         }
 
-        li {
+        div {
             display: inline-block;
 
             a {

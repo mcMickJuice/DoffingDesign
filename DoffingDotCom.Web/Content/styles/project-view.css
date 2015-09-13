@@ -13,6 +13,9 @@
   font-size: 18px;
   font-weight: bold;
 }
+.project-view .project-title {
+  margin: 10px 0;
+}
 .project-view h2 {
   font-size: 16px;
   font-style: italic;
@@ -26,8 +29,9 @@
   font-style: italic;
 }
 .project-view .main-image img {
-  margin: auto;
+  margin: 10px auto;
   display: block;
+  max-width: 100%;
 }
 .project-view .purchase-detail p {
   color: #a7a6a8;

@@ -3,6 +3,8 @@
 
 @{
     var basePath = ConfigProvider.ImagePath;
+    var projectType = ViewData["ProjectType"];
+    var backPath = string.Format("Back to {0}", projectType);
 }
 
 
@@ -10,27 +12,26 @@
     <div class="row">
         <div class="main-image col-xs-8">
             @foreach (var item in @Model.ProjectItems
-                 .Where(p => p.IsThumb == false)
+                .Where(p => p.IsThumb == false)
                 .OrderBy(p => p.ImageName))
             {
-                <img src="@(basePath + item.ImageUrl)" alt="@item.AltText" data-hover="@item.ImageCaption" />
+                <img src="@(basePath + item.ImageUrl)" alt="@item.AltText" data-hover="@item.ImageCaption"/>
             }
 
         </div>
         <div class="col-xs-1"></div>
         <div class="side-text col-xs-4">
+            <h1 class="project-title">@Model.Title</h1>
+
             <div class="project-description">
                 <div class="project-description">
                     @Html.Raw(@Model.ProjectHtml)
                 </div>
-            </div>
 
-@*            <div class="purchase-detail">*@
-@*                <p>Want to buy this print? (@Html.DisplayFor(m => m.Society6Id))</p>*@
-@*                <p>*@
-@*                    Check it out on <a href="@Model.Society6Link">Society6</a>*@
-@*                </p>*@
-@*            </div>*@
+                <div class="back-link">
+                    @Html.ActionLink(backPath, "IndexByType", new { projectType })
+                </div>
+            </div>
 
         </div>
 

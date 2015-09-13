@@ -9,7 +9,7 @@
   height: 90px;
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  border-bottom-color: #414042;
+  border-bottom-color: #ffebe8;
   /*@media (max-width: @small-width) {
         div.site-links-icon {
             display: inline-block;
@@ -97,6 +97,7 @@
 .header div.navigation nav {
   position: absolute;
   bottom: 0;
+  right: 10%;
 }
 .header div.navigation nav li {
   display: inline-block;
