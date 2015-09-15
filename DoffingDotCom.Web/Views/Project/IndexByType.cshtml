@@ -6,7 +6,7 @@
     var basePath = ConfigProvider.ImagePath;
 }
 
-<h3>@Model.ProjectType</h3>
+<h3 class="body-header">@Model.ProjectType</h3>
 
 @foreach (var proj in @Model.Projects.OrderBy(p => p.SortOrder))
 {

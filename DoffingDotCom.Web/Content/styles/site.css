@@ -22,6 +22,15 @@ h5 {
   padding: 0;
   font-family: 'Montserrat', 'Arial', sans-serif;
 }
+.body-header {
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: bold;
+}
+p {
+  margin-top: 25px;
+}
 /* Set padding to keep content from hitting the edges */
 .body-content {
   padding: 20px 20px 10px 20px;
