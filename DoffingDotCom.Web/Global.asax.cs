@@ -63,7 +63,7 @@ namespace DoffingDotCom.Web
 
         protected void Application_BeginRequest()
         {
-            if (ConfigProvider.Environment == "prod")
+            if (ConfigProvider.Environment == "production")
             {
                 //get request Url
                 var preferredDomain = "http://www.alexandradoffing.com";
@@ -81,7 +81,7 @@ namespace DoffingDotCom.Web
                         redirectUri = new Uri(redirectUri, requestUri.PathAndQuery);
                     }
 
-                    Response.Redirect(redirectUri.ToString());
+                    Response.RedirectPermanent(redirectUri.ToString());
                 }
             }
 
