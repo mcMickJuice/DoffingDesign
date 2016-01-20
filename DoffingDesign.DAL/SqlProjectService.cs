@@ -60,9 +60,9 @@ namespace DoffingDesign.DAL
         {
             var projectTypeDict = new Dictionary<string, ProjectType>
             {
-                {"Drawings",ProjectType.Drawing},
-                {"Vector",ProjectType.Vector},
-                {"Painting",ProjectType.Painting},
+                {"FineArt",ProjectType.FineArt},
+                {"Illustration",ProjectType.Illustration},
+                {"Pattern",ProjectType.Pattern},
             };
 
             var type = projectTypeDict[projectType];

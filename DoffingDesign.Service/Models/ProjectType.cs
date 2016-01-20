@@ -2,8 +2,8 @@ namespace DoffingDesign.Service.Models
 {
     public enum ProjectType
     {
-        Drawing = 1,
-        Painting = 2,
-        Vector = 3
+        FineArt = 1,
+        Pattern = 2,
+        Illustration = 3
     }
 }

@@ -49,7 +49,7 @@ namespace DoffingDotCom.Web.Controllers
             }
 
             var projectType = project.ProjectType.ToString();
-            ViewData["ProjectType"] = projectType == "Drawing" ? "Drawings" : projectType;
+            ViewData["ProjectType"] = projectType == "FineArt" ? "FineArt" : projectType;
 
             return View(project);
         }
