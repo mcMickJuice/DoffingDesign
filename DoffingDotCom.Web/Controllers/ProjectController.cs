@@ -48,10 +48,8 @@ namespace DoffingDotCom.Web.Controllers
                 RedirectToAction("ProjectNotFound",new {projectName = projectId});
             }
 
-            var projectType = project.ProjectType.ToString();
-            ViewData["ProjectType"] = projectType == "Drawing" ? "Drawings" : projectType;
-
-            return View(project);
+            var vm = new ProjectViewModel(project);
+            return View(vm);
         }
 
         public ActionResult ProjectNotFound(string projectName)
