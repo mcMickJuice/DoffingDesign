@@ -4,7 +4,7 @@ using ProjectVm = DoffingDesign.Service.Models.Project;
 
 namespace DoffingDotCom.Web.Models.Project
 {
-    public class ProjectViewModel
+    public class ProjectViewModel: ProjectViewModelBase
     {
         public ProjectVm Project  { get; private set; }
 
@@ -13,7 +13,7 @@ namespace DoffingDotCom.Web.Models.Project
             get
             {
                 var projectType = Project.ProjectType;
-                return EnumToFriendlyProjectName[projectType];
+                return GetFriendlyProjectType(projectType);
             }
         }
 
@@ -27,11 +27,5 @@ namespace DoffingDotCom.Web.Models.Project
             Project = project;
         }
 
-        private Dictionary<ProjectType, string> EnumToFriendlyProjectName = new Dictionary<ProjectType, string>
-        {
-            {ProjectType.FineArt, "Fine Art"},
-            {ProjectType.Illustration, "Illustration"},
-            {ProjectType.Pattern, "Patterns"},
-        }; 
     }
 }
