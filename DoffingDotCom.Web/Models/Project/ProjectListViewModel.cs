@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using ProjectVm = DoffingDesign.Service.Models.Project;
 
 namespace DoffingDotCom.Web.Models.Project

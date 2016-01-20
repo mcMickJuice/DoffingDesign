@@ -1,17 +1,17 @@
 ﻿@using DoffingDotCom.Web.Services
-@model DoffingDesign.Service.Models.Project
+@model DoffingDotCom.Web.Models.Project.ProjectViewModel
 
 @{
     var basePath = ConfigProvider.ImagePath;
-    var projectType = ViewData["ProjectType"];
-    var backPath = string.Format("< Back to {0}", projectType);
+    var backPath = string.Format("< Back to {0}", Model.ProjectTypeName);
+    var project = Model.Project;
 }
 
 
 <div class="project-view container">
     <div class="row">
         <div class="main-image col-xs-8">
-            @foreach (var item in @Model.ProjectItems
+            @foreach (var item in project.ProjectItems
                 .Where(p => p.IsThumb == false)
                 .OrderBy(p => p.ImageName))
             {
@@ -21,15 +21,15 @@
         </div>
         <div class="col-xs-1"></div>
         <div class="side-text col-xs-4">
-            <h1 class="project-title">@Model.Title</h1>
+            <h1 class="project-title">@project.Title</h1>
 
             <div class="project-description">
                 <div class="project-description">
-                    @Html.Raw(@Model.ProjectHtml)
+                    @Html.Raw(@project.ProjectHtml)
                 </div>
 
                 <div class="back-link">
-                    @Html.ActionLink(backPath, "IndexByType", new { projectType })
+                    @Html.ActionLink(backPath, "IndexByType",new { projectType = @Model.ProjectTypePath })
                 </div>
             </div>
 
