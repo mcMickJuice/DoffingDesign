@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using DoffingDesign.DAL.EntityModels;
@@ -19,6 +21,7 @@ namespace DoffingDesign.DAL
     {
         private IDoffingDotComModel _context;
         private readonly IProjectMapper _projectMapper;
+        private readonly IDiagnosticLogger _diagnosticLogger;
 
         private readonly Expression<Func<ProjectDb,object>>[] _includes = 
         {
@@ -27,10 +30,11 @@ namespace DoffingDesign.DAL
             p => p.ThirdPartyInfos
         };
 
-        public SqlProjectService(IDoffingDotComModel context, IProjectMapper projectMapper)
+        public SqlProjectService(IDoffingDotComModel context, IProjectMapper projectMapper, IDiagnosticLogger diagnosticLogger)
         {
             _context = context;
             _projectMapper = projectMapper;
+            _diagnosticLogger = diagnosticLogger;
         }
 
         public async Task<List<Project>> GetActiveProjects()
@@ -67,7 +71,14 @@ namespace DoffingDesign.DAL
 
             var type = projectTypeDict[projectType];
 
+            var message = "SqlProjectService:GetProjectsByType:getProjects";
+            _diagnosticLogger.LogActivity(message);
+            var sw = new Stopwatch();
+            sw.Start();
+
             var projects = await getProjects(p => p.ProjectType == type,_includes);
+            sw.Stop();
+            _diagnosticLogger.LogActivity(message,TimeSpan.FromMilliseconds(sw.ElapsedMilliseconds));
 
             var mappedProjects = projects
                 .Select(_projectMapper.ToViewModel)
@@ -119,15 +130,27 @@ namespace DoffingDesign.DAL
             params Expression<Func<ProjectDb, object>>[] includes)
         {
             //use using statement here?
+            var message = "SqlProjectService:getProjects:AsQueryable";
+            _diagnosticLogger.LogActivity(message);
+            var sw = new Stopwatch();
+            sw.Start();
             var query = _context.Set<ProjectDb>().AsQueryable();
+            sw.Stop();
+            _diagnosticLogger.LogActivity(message, TimeSpan.FromMilliseconds(sw.ElapsedMilliseconds));
 
             //just like reduce in javascript!
+            message = "SqlProjectService:getProjects:Include and Where";
+            sw.Reset();
+            _diagnosticLogger.LogActivity(message);
+            sw.Start();
             query = includes.Aggregate(query,(acc,i) => acc.Include(i));
 
             if (predicate != null)
             {
                 query = query.Where(predicate);
             }
+            sw.Stop();
+            _diagnosticLogger.LogActivity(message,TimeSpan.FromMilliseconds(sw.ElapsedMilliseconds));
 
             return query.AsExpandable().ToListAsync();
 

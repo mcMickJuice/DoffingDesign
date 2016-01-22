@@ -20,6 +20,7 @@ using DoffingDesign.Service.Markdown;
 using DoffingDotCom.Web.Secrets;
 using DoffingDotCom.Web.Services;
 using Newtonsoft.Json.Serialization;
+using DiagnosticLogger = DoffingDesign.Service.DiagnosticLogger;
 
 namespace DoffingDotCom.Web
 {

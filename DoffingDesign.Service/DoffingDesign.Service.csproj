@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IDiagnosticLogger.cs" />
     <Compile Include="IProjectEnumService.cs" />
     <Compile Include="IProjectService.cs" />
     <Compile Include="Markdown\IMarkdownService.cs" />

@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.AccessControl;
-using System.Web;
+using DoffingDesign.Service;
 
 namespace DoffingDotCom.Web.Services
 {
-    public interface IDiagnosticLogger
-    {
-        void LogActivity(string message, TimeSpan timeElapsed);
-        void LogActivity(string message);
-    }
-
     public class DiagnosticLogger: IDiagnosticLogger
     {
         public void LogActivity(string message, TimeSpan timeElapsed)

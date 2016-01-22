@@ -8,7 +8,6 @@ using System.Web;
 using System.Web.Mvc;
 using DoffingDesign.Service;
 using DoffingDotCom.Web.Models.Project;
-using DoffingDotCom.Web.Services;
 
 namespace DoffingDotCom.Web.Controllers
 {
