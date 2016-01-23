@@ -67,7 +67,7 @@ namespace DoffingDotCom.Web.Controllers
 
             if (project == null)
             {
-                RedirectToAction("ProjectNotFound",new {projectName = projectId});
+                return RedirectToAction("ProjectNotFound",new {projectName = projectId});
             }
 
             var vm = new ProjectViewModel(project);

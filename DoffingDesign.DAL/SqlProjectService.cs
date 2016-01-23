@@ -52,6 +52,8 @@ namespace DoffingDesign.DAL
             var project = await getFirstProject(p => projectName.ToUpper() == p.AppSlug.ToUpper(),
                 _includes);
 
+            if (project == null) return null;
+
             return _projectMapper.ToViewModel(project);
         }
 
