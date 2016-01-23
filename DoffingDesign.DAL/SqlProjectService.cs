@@ -69,7 +69,11 @@ namespace DoffingDesign.DAL
                 {"Pattern",ProjectType.Pattern},
             };
 
-            var type = projectTypeDict[projectType];
+            ProjectType type;
+            if (projectTypeDict.TryGetValue(projectType, out type) == false)
+            {
+                return new List<Project>();
+            }
 
             var message = "SqlProjectService:GetProjectsByType:getProjects";
             _diagnosticLogger.LogActivity(message);
