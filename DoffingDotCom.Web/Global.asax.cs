@@ -20,7 +20,6 @@ using DoffingDesign.Service.Markdown;
 using DoffingDotCom.Web.Secrets;
 using DoffingDotCom.Web.Services;
 using Newtonsoft.Json.Serialization;
-using DiagnosticLogger = DoffingDesign.Service.DiagnosticLogger;
 
 namespace DoffingDotCom.Web
 {
@@ -86,6 +85,17 @@ namespace DoffingDotCom.Web
                     Response.RedirectPermanent(redirectUri.ToString());
                 }
             }
+
+        }
+
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            Exception ex = Server.GetLastError();
+            var logger = new DiagnosticLogger();
+
+            var msg = string.Format("Error in DoffingDotCom: {0}", ex.Message);
+
+            logger.LogError(msg);
 
         }
     }
