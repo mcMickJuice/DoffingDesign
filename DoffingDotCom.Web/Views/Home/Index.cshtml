@@ -8,39 +8,27 @@
     @Styles.Render("~/Content/homeCss")
 }
 
-<div class="main row">
-    <div class="main-image col-lg-8">
-        <img src="/Content/images/myworkspace.jpg" alt="My Workspace">
-        <a href="~/Home/About">
-            <div class="overlay">
-                <h1>ABOUT ALEX</h1>
-                <span class="ruler"></span>
-                <p>Biography / Process / Testimonials</p>
-            </div></a>
+<div class="main">
+    <div class="block hero-image">
+        <a href="~/Project/Patterns/handmade-florals">
+            <img src="~/Content/images/hero-anemones.jpg" alt="Hero Anemones" />
+        </a>
     </div>
-    <div class="hidden-lg spacer"></div>
-    <div class="side-images col-lg-4 col-lg-offset-0 col-md-offset-2">
-        <div class="drawing col-lg-12 col-md-5">
-            <img src="/Content/images/drawings.jpg" alt="Fine Art">
-            <a href="~/Project/FineArt">
-                <div class="overlay">
-                    <h2>DRAWINGS</h2>
-                    <span class="ruler"></span>
-                    <p>Portraits / Florals</p>
-                </div>
+    <div class="block-images">
+        <div class="block coloring-book">
+            <a href="~/Project/Illustration/coloring-book">
+                <img src="~/Content/images/block-1-coloring.png" alt="Coloring Book" />
             </a>
-
         </div>
-        <div class="vector col-lg-12 col-md-5">
-            <img src="/Content/images/vector.jpg" alt="Illustration">
-            <a href="~/Project/Illustration">
-                <div class="overlay">
-                    <h2>VECTOR ART</h2>
-                    <span class="ruler"></span>
-                    <p>Patterns / Cityscapes</p>
-                </div>
+        <div class="block portraits">
+            <a href="~/Project/FineArt/flowers-in-her-hair">
+                <img src="~/Content/images/block-2-portraits.jpg" alt="Portraits" />
+            </a>
+        </div>
+        <div class="block cmbn">
+            <a href="~/Project/Illustration/city-moms-blog-network">
+                <img src="/Content/images/block-3-cmbn.png" alt="City Mom Blog Network" />
             </a>
         </div>
     </div>
-
 </div>

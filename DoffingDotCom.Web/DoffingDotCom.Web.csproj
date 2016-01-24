@@ -219,8 +219,12 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\about-alex.png" />
+    <Content Include="Content\images\block-1-coloring.png" />
+    <Content Include="Content\images\block-2-portraits.jpg" />
+    <Content Include="Content\images\block-3-cmbn.png" />
     <Content Include="Content\images\drawings.jpg" />
     <Content Include="Content\images\dropdown_menu_icon.png" />
+    <Content Include="Content\images\hero-anemones.jpg" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\myworkspace.jpg" />
     <Content Include="Content\images\project-items\1_SimplePatterns_RetroFloral_800.png" />
@@ -352,10 +356,6 @@
     <Content Include="Content\styles\footer.css.map">
       <DependentUpon>footer.css</DependentUpon>
     </Content>
-    <Content Include="Content\styles\home.less" />
-    <Content Include="Content\styles\home.css.map">
-      <DependentUpon>home.css</DependentUpon>
-    </Content>
     <Content Include="Content\styles\project-view.less" />
     <Content Include="Content\styles\project-view.css.map">
       <DependentUpon>project-view.css</DependentUpon>
@@ -367,6 +367,10 @@
     <Content Include="Content\styles\about.less" />
     <Content Include="Content\styles\about.css.map">
       <DependentUpon>about.css</DependentUpon>
+    </Content>
+    <Content Include="Content\styles\home.less" />
+    <Content Include="Content\styles\home.css.map">
+      <DependentUpon>home.css</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\LocalDeploy.pubxml" />
     <None Include="Properties\PublishProfiles\mjJuiceSampleApp - FTP.pubxml" />

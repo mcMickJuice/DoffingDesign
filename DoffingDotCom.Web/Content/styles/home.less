@@ -1,81 +1,90 @@
 ﻿@import "global.less";
 
-@main-section-height: 400px;
-@side-image-height: @main-section-height *.5;
-
-.overlay-hover {
-  &:hover .overlay {
-    opacity: 1;
-  }
+@media (min-width:@mobileSize) { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
 }
 
-p {
-  font-size: 16px;
+@media (min-width:@tabletSize) { /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+
+@media (min-width:@desktopSize) { /* big landscape tablets, laptops, and desktops */
+}
+
+/*
+image urls
+drawings - http://i.imgur.com/Al1JzKh.jpg
+main - http://i.imgur.com/uNZbLk5.jpg
+vector - http://i.imgur.com/tC6aMCt.jpg
+logo - http://i.imgur.com/VHrnmgX.png
+*/
+
+
+.background-image-it(@url) {
+    background: url(@url) no-repeat;
+    background-size: contain;
+    background-position: center;
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+#header, #footer {
+    height: 200px;
+    border: 2px dotted blue;
 }
 
 .main {
-    // height: @main-section-height; //remove fixed yo! or have it via media query
-    margin-top: 30px;
+    width: @mobileSize;
+    margin: auto;
+}
 
-    img {
+/*overlay
+show in top left of image for medium and small, hide on large
+*/
+/*.overlay {
+  display: none;
+  position: absolute;
+}*/
+
+/* image links to projects, about etc */
+.block {
+    display: block;
+    /*height: 300px;*/
+    width: @mobileSize;
+    /*max-width: @mobileSize;*/
+    margin-bottom: 5px;
+    /*border: 1px dotted red;*/
+
+    > a {
         display: block;
-        margin: auto;
+        width: 100%;
+
+        > img {
+            width: 100%;
+        }
+    }
+}
+
+@media (min-width: @tabletSize) {
+    .main {
+        width: @tabletSize;
     }
 
-    .spacer {
-        height: 30px;
+    .block.hero-image {
+        width: 100%;
     }
 
-    .unstyled-link;
-
-    .overlay {
-        opacity: 0;
-        -moz-transition: opacity .25s ease;
-        -o-transition: opacity .25s ease;
-        -webkit-transition: opacity .25s ease;
-        transition: opacity .25s ease;
-        background: rgba(265,265,265,.90);
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0; //account for bootstrap 15px padding to cols
-        text-align: center;
-
-        span.ruler {
+    .block-images {
+        display: flex;
+        margin-top: 40px;
+        justify-content: space-between;
+        /* align children tiles in line, equally spaced */
+        & > div {
             display: inline-block;
-            height: 1px;
-            width: 50px;
-            border-top: 1px solid black;
-        }
-
-        p {
-            line-height: 35px;
+            /*height: 275px;*/
+            width: 31%;
         }
     }
+}
 
-    .main-image {
-        height: @main-section-height;
-        .overlay-hover;
-
-        .overlay {
-            padding-top: @main-section-height * .4;
-        }
-    }
-
-    .side-images {
-        > div {
-            height: @side-image-height;
-
-            .overlay {
-                padding-top: @side-image-height * .25;
-            }
-
-            .overlay-hover
-        }
-
-        .drawing {
-            margin-bottom: 12px;
-        }
-    }
+@media (min-width: @desktopSize) {
 }
