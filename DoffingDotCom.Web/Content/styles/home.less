@@ -9,15 +9,6 @@
 @media (min-width:@desktopSize) { /* big landscape tablets, laptops, and desktops */
 }
 
-/*
-image urls
-drawings - http://i.imgur.com/Al1JzKh.jpg
-main - http://i.imgur.com/uNZbLk5.jpg
-vector - http://i.imgur.com/tC6aMCt.jpg
-logo - http://i.imgur.com/VHrnmgX.png
-*/
-
-
 .background-image-it(@url) {
     background: url(@url) no-repeat;
     background-size: contain;
@@ -33,7 +24,7 @@ logo - http://i.imgur.com/VHrnmgX.png
 }
 
 .main {
-    width: @mobileSize;
+    width: 100%;
     margin: auto;
 }
 
@@ -48,11 +39,12 @@ show in top left of image for medium and small, hide on large
 /* image links to projects, about etc */
 .block {
     display: block;
-    /*height: 300px;*/
-    width: @mobileSize;
-    /*max-width: @mobileSize;*/
-    margin-bottom: 5px;
+    width: 100%;
+    margin-bottom: 25px;
     /*border: 1px dotted red;*/
+    &.hero-image {
+        padding: 25px 0;
+    }
 
     > a {
         display: block;
@@ -66,12 +58,19 @@ show in top left of image for medium and small, hide on large
 
 @media (min-width: @tabletSize) {
     .main {
-        width: @tabletSize;
+        width: 90%;
     }
 
-    .block.hero-image {
-        width: 100%;
+    .block {
+        margin-bottom: 0;
+        
+        &.hero-image {
+            width: 100%;
+            padding: 0;
+        }
     }
+
+
 
     .block-images {
         display: flex;
