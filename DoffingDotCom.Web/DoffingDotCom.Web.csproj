@@ -268,7 +268,10 @@
     <Content Include="Content\images\project-items\FlowersInHerHair1_thumb.jpg" />
     <Content Include="Content\images\project-items\FlowersInHerHair2.jpg" />
     <Content Include="Content\images\project-items\FlowersInHerHair3.jpg" />
+    <Content Include="Content\images\project-items\HandmadeFlorals_Anemones.jpg" />
+    <Content Include="Content\images\project-items\HandmadeFlorals_Ferns.jpg" />
     <Content Include="Content\images\project-items\Thumb_CMBN_PortlandOR_800.jpg" />
+    <Content Include="Content\images\project-items\Thumb_HandmadeFlorals_Anemones.jpg" />
     <Content Include="Content\images\project-items\Thumb_SimplePatterns_RetroFloral_800 copy.png" />
     <Content Include="Content\images\project-items\Thumb_Sketchbook_Auryn_800.jpg" />
     <Content Include="Content\images\project-items\Thumb_TwinCities_Minneapolis_800.png" />
