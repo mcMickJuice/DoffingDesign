@@ -23,14 +23,6 @@
   width: 100%;
   margin: auto;
 }
-/*overlay
-show in top left of image for medium and small, hide on large
-*/
-/*.overlay {
-  display: none;
-  position: absolute;
-}*/
-/* image links to projects, about etc */
 .block {
   display: block;
   width: 100%;
@@ -39,6 +31,12 @@ show in top left of image for medium and small, hide on large
 }
 .block.hero-image {
   padding: 25px 0;
+}
+.block.hero-image img.desktop {
+  display: none;
+}
+.block.hero-image img.mobile {
+  display: block;
 }
 .block > a {
   display: block;
@@ -58,9 +56,15 @@ show in top left of image for medium and small, hide on large
     width: 100%;
     padding: 0;
   }
+  .block.hero-image img.desktop {
+    display: block;
+  }
+  .block.hero-image img.mobile {
+    display: none;
+  }
   .block-images {
     display: flex;
-    margin-top: 40px;
+    margin-top: 23px;
     justify-content: space-between;
     /* align children tiles in line, equally spaced */
   }
