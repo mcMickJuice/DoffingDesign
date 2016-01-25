@@ -51,7 +51,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityModels\ContactInfo.cs" />
     <Compile Include="Helpers\AppSlugTransformer.cs" />
+    <Compile Include="Mapping\IContactMapper.cs" />
+    <Compile Include="Migrations\201601250041240_AddContactInfo.cs" />
+    <Compile Include="Migrations\201601250041240_AddContactInfo.Designer.cs">
+      <DependentUpon>201601250041240_AddContactInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlContactService.cs" />
     <Compile Include="SqlProjectEnumService.cs" />
     <Compile Include="EntityModels\DoffingDotComModel.cs" />
     <Compile Include="EntityModels\IDoffingDotComModel.cs" />
@@ -112,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201508120052032_ChangedProjectTemplateProjectRel.resx">
       <DependentUpon>201508120052032_ChangedProjectTemplateProjectRel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601250041240_AddContactInfo.resx">
+      <DependentUpon>201601250041240_AddContactInfo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

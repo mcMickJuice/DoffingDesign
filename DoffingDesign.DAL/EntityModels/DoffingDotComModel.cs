@@ -20,7 +20,7 @@ namespace DoffingDesign.DAL.EntityModels
             Configuration.LazyLoadingEnabled = false;
         }
 
-        public DoffingDotComModel()
+        internal DoffingDotComModel()
             : this(DefaultDatabaseInfo.ConnectionString)
         {
         }
@@ -62,6 +62,12 @@ namespace DoffingDesign.DAL.EntityModels
                 .Property(p => p.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
                 .HasColumnName("ThirdPartySiteInfoId");
+
+            modelBuilder.Entity<ContactInfo>()
+                .HasKey(p => p.Id)
+                .Property(p => p.Id)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
+                .HasColumnName("ContactInfoId");
         }
 
         // Add a DbSet for each entity type that you want to include in your model. For more information 
@@ -71,5 +77,6 @@ namespace DoffingDesign.DAL.EntityModels
         public virtual DbSet<ProjectItem> ProjectItems { get; set; }
         public virtual DbSet<ProjectTemplate> ProjectTemplates { get; set; }
         public virtual DbSet<ThirdPartySiteInfo> ThirdPartySiteInfos { get; set; }
+        public virtual DbSet<ContactInfo> ContactInfos { get; set; }
     }
 }
