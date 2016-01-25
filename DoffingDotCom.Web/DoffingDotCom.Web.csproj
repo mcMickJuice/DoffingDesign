@@ -239,6 +239,7 @@
     <Content Include="Content\images\project-items\3_Sketchbook_SleighBells_800.jpg" />
     <Content Include="Content\images\project-items\4_SimplePatterns_Woodgrain_800.png" />
     <Content Include="Content\images\project-items\4_Sketchbook_Mpls_800.jpg" />
+    <Content Include="Content\images\project-items\Adult-Color-Book-coloring-preview.jpg" />
     <Content Include="Content\images\project-items\CMBN_alamo-city.png" />
     <Content Include="Content\images\project-items\CMBN_austin.png" />
     <Content Include="Content\images\project-items\CMBN_boston.png" />
@@ -274,8 +275,11 @@
     <Content Include="Content\images\project-items\FlowersInHerHair1_thumb.jpg" />
     <Content Include="Content\images\project-items\FlowersInHerHair2.jpg" />
     <Content Include="Content\images\project-items\FlowersInHerHair3.jpg" />
+    <Content Include="Content\images\project-items\Gouache-Greens-gouache-greens.jpg" />
     <Content Include="Content\images\project-items\HandmadeFlorals_Anemones.jpg" />
     <Content Include="Content\images\project-items\HandmadeFlorals_Ferns.jpg" />
+    <Content Include="Content\images\project-items\Thumb-Gouache-Greens-gouache-greens.jpg" />
+    <Content Include="Content\images\project-items\Thumb_Adult_coloring_Book.png" />
     <Content Include="Content\images\project-items\Thumb_CMBN_PortlandOR_800.jpg" />
     <Content Include="Content\images\project-items\Thumb_HandmadeFlorals_Anemones.jpg" />
     <Content Include="Content\images\project-items\Thumb_SimplePatterns_RetroFloral_800 copy.png" />
