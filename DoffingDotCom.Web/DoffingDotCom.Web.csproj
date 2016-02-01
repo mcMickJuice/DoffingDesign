@@ -20,6 +20,9 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -179,6 +182,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\api\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProjectAdminApiController.cs" />
@@ -192,9 +196,12 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Project\ProjectListViewModel.cs" />
+    <Compile Include="Models\Project\ProjectViewModel.cs" />
+    <Compile Include="Models\Project\ProjectViewModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Secrets\EnvironmentSettings.cs" />
     <Compile Include="Services\ConfigProvider.cs" />
+    <Compile Include="Services\DiagnosticLogger.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -216,8 +223,13 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\about-alex.png" />
+    <Content Include="Content\images\block-1-coloring.png" />
+    <Content Include="Content\images\block-2-portraits.jpg" />
+    <Content Include="Content\images\block-3-cmbn.png" />
     <Content Include="Content\images\drawings.jpg" />
     <Content Include="Content\images\dropdown_menu_icon.png" />
+    <Content Include="Content\images\hero-anemones-mobile.jpg" />
+    <Content Include="Content\images\hero-anemones.jpg" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\myworkspace.jpg" />
     <Content Include="Content\images\project-items\1_SimplePatterns_RetroFloral_800.png" />
@@ -230,6 +242,7 @@
     <Content Include="Content\images\project-items\3_Sketchbook_SleighBells_800.jpg" />
     <Content Include="Content\images\project-items\4_SimplePatterns_Woodgrain_800.png" />
     <Content Include="Content\images\project-items\4_Sketchbook_Mpls_800.jpg" />
+    <Content Include="Content\images\project-items\Adult-Color-Book-coloring-preview.jpg" />
     <Content Include="Content\images\project-items\CMBN_alamo-city.png" />
     <Content Include="Content\images\project-items\CMBN_austin.png" />
     <Content Include="Content\images\project-items\CMBN_boston.png" />
@@ -265,7 +278,13 @@
     <Content Include="Content\images\project-items\FlowersInHerHair1_thumb.jpg" />
     <Content Include="Content\images\project-items\FlowersInHerHair2.jpg" />
     <Content Include="Content\images\project-items\FlowersInHerHair3.jpg" />
+    <Content Include="Content\images\project-items\Gouache-Greens-gouache-greens.jpg" />
+    <Content Include="Content\images\project-items\HandmadeFlorals_Anemones.jpg" />
+    <Content Include="Content\images\project-items\HandmadeFlorals_Ferns.jpg" />
+    <Content Include="Content\images\project-items\Thumb-Gouache-Greens-gouache-greens.jpg" />
+    <Content Include="Content\images\project-items\Thumb_Adult_coloring_Book.png" />
     <Content Include="Content\images\project-items\Thumb_CMBN_PortlandOR_800.jpg" />
+    <Content Include="Content\images\project-items\Thumb_HandmadeFlorals_Anemones.jpg" />
     <Content Include="Content\images\project-items\Thumb_SimplePatterns_RetroFloral_800 copy.png" />
     <Content Include="Content\images\project-items\Thumb_Sketchbook_Auryn_800.jpg" />
     <Content Include="Content\images\project-items\Thumb_TwinCities_Minneapolis_800.png" />
@@ -346,10 +365,6 @@
     <Content Include="Content\styles\footer.css.map">
       <DependentUpon>footer.css</DependentUpon>
     </Content>
-    <Content Include="Content\styles\home.less" />
-    <Content Include="Content\styles\home.css.map">
-      <DependentUpon>home.css</DependentUpon>
-    </Content>
     <Content Include="Content\styles\project-view.less" />
     <Content Include="Content\styles\project-view.css.map">
       <DependentUpon>project-view.css</DependentUpon>
@@ -362,6 +377,14 @@
     <Content Include="Content\styles\about.css.map">
       <DependentUpon>about.css</DependentUpon>
     </Content>
+    <Content Include="Content\styles\home.less" />
+    <Content Include="Content\styles\home.css.map">
+      <DependentUpon>home.css</DependentUpon>
+    </Content>
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
     <None Include="Properties\PublishProfiles\LocalDeploy.pubxml" />
     <None Include="Properties\PublishProfiles\mjJuiceSampleApp - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\mjJuiceSampleApp - Web Deploy.pubxml" />
@@ -477,6 +500,13 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="..\packages\BuildWebCompiler.1.10.300\build\BuildWebCompiler.targets" Condition="Exists('..\packages\BuildWebCompiler.1.10.300\build\BuildWebCompiler.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\BuildWebCompiler.1.10.300\build\BuildWebCompiler.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\BuildWebCompiler.1.10.300\build\BuildWebCompiler.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

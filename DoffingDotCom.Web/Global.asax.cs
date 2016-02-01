@@ -40,6 +40,7 @@ namespace DoffingDotCom.Web
             builder.RegisterType<ProjectItemMapper>().As<IProjectItemMapper>();
             builder.RegisterType<MarkdownService>().As<IMarkdownService>();
             builder.RegisterType<SqlProjectEnumService>().As<IProjectEnumService>();
+            builder.RegisterType<DiagnosticLogger>().As<IDiagnosticLogger>();
 
             //database connection
             //TODO THIS NEEDS TO COME FROM A SERVICE!
@@ -84,6 +85,17 @@ namespace DoffingDotCom.Web
                     Response.RedirectPermanent(redirectUri.ToString());
                 }
             }
+
+        }
+
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            Exception ex = Server.GetLastError();
+            var logger = new DiagnosticLogger();
+
+            var msg = string.Format("Error in DoffingDotCom: {0}", ex.Message);
+
+            logger.LogError(msg);
 
         }
     }

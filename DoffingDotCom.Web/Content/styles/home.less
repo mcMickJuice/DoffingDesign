@@ -1,81 +1,98 @@
 ﻿@import "global.less";
 
-@main-section-height: 400px;
-@side-image-height: @main-section-height *.5;
-
-.overlay-hover {
-  &:hover .overlay {
-    opacity: 1;
-  }
+@media (min-width:@mobileSize) { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
 }
 
-p {
-  font-size: 16px;
+@media (min-width:@tabletSize) { /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+
+@media (min-width:@desktopSize) { /* big landscape tablets, laptops, and desktops */
+}
+
+.background-image-it(@url) {
+    background: url(@url) no-repeat;
+    background-size: contain;
+    background-position: center;
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+#header, #footer {
+    height: 200px;
+    border: 2px dotted blue;
 }
 
 .main {
-    // height: @main-section-height; //remove fixed yo! or have it via media query
-    margin-top: 30px;
+    width: 100%;
+    margin: auto;
+}
 
-    img {
-        display: block;
-        margin: auto;
-    }
+.block {
+    display: block;
+    width: 100%;
+    margin-bottom: 25px;
+    /*border: 1px dotted red;*/
+    &.hero-image {
+        padding: 25px 0;
 
-    .spacer {
-        height: 30px;
-    }
-
-    .unstyled-link;
-
-    .overlay {
-        opacity: 0;
-        -moz-transition: opacity .25s ease;
-        -o-transition: opacity .25s ease;
-        -webkit-transition: opacity .25s ease;
-        transition: opacity .25s ease;
-        background: rgba(265,265,265,.90);
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0; //account for bootstrap 15px padding to cols
-        text-align: center;
-
-        span.ruler {
-            display: inline-block;
-            height: 1px;
-            width: 50px;
-            border-top: 1px solid black;
-        }
-
-        p {
-            line-height: 35px;
-        }
-    }
-
-    .main-image {
-        height: @main-section-height;
-        .overlay-hover;
-
-        .overlay {
-            padding-top: @main-section-height * .4;
-        }
-    }
-
-    .side-images {
-        > div {
-            height: @side-image-height;
-
-            .overlay {
-                padding-top: @side-image-height * .25;
+        img{
+            &.desktop{
+                display: none;
             }
-
-            .overlay-hover
-        }
-
-        .drawing {
-            margin-bottom: 12px;
+            &.mobile{
+                display:block;
+            }
         }
     }
+
+    > a {
+        display: block;
+        width: 100%;
+
+        > img {
+            width: 100%;
+        }
+    }
+}
+
+@media (min-width: @tabletSize) {
+    .main {
+        width: 90%;
+    }
+
+    .block {
+        margin-bottom: 0;
+        
+        &.hero-image {
+            width: 100%;
+            padding: 0;
+
+            img{
+            &.desktop{
+                display: block;
+            }
+            &.mobile{
+                display: none;
+            }
+        }
+        }
+    }
+
+
+
+    .block-images {
+        display: flex;
+        margin-top: 28px;
+        justify-content: space-between;
+        /* align children tiles in line, equally spaced */
+        & > div {
+            display: inline-block;
+            /*height: 275px;*/
+            width: 31%;
+        }
+    }
+}
+
+@media (min-width: @desktopSize) {
 }

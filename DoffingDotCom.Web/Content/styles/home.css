@@ -5,68 +5,73 @@
   color: initial;
   text-decoration: none;
 }
-.overlay-hover:hover .overlay {
-  opacity: 1;
+@media (min-width: 481px) {
+  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
 }
-p {
-  font-size: 16px;
+@media (min-width: 961px) {
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+@media (min-width: 1025px) {
+  /* big landscape tablets, laptops, and desktops */
+}
+#header,
+#footer {
+  height: 200px;
+  border: 2px dotted blue;
 }
 .main {
-  margin-top: 30px;
-}
-.main img {
-  display: block;
+  width: 100%;
   margin: auto;
 }
-.main .spacer {
-  height: 30px;
+.block {
+  display: block;
+  width: 100%;
+  margin-bottom: 25px;
+  /*border: 1px dotted red;*/
 }
-.main a {
-  color: initial;
-  text-decoration: none;
+.block.hero-image {
+  padding: 25px 0;
 }
-.main .overlay {
-  opacity: 0;
-  -moz-transition: opacity .25s ease;
-  -o-transition: opacity .25s ease;
-  -webkit-transition: opacity .25s ease;
-  transition: opacity .25s ease;
-  background: rgba(255, 255, 255, 0.9);
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  text-align: center;
+.block.hero-image img.desktop {
+  display: none;
 }
-.main .overlay span.ruler {
-  display: inline-block;
-  height: 1px;
-  width: 50px;
-  border-top: 1px solid black;
+.block.hero-image img.mobile {
+  display: block;
 }
-.main .overlay p {
-  line-height: 35px;
+.block > a {
+  display: block;
+  width: 100%;
 }
-.main .main-image {
-  height: 400px;
+.block > a > img {
+  width: 100%;
 }
-.main .main-image:hover .overlay {
-  opacity: 1;
-}
-.main .main-image .overlay {
-  padding-top: 160px;
-}
-.main .side-images > div {
-  height: 200px;
-}
-.main .side-images > div .overlay {
-  padding-top: 50px;
-}
-.main .side-images > div:hover .overlay {
-  opacity: 1;
-}
-.main .side-images .drawing {
-  margin-bottom: 12px;
+@media (min-width: 961px) {
+  .main {
+    width: 90%;
+  }
+  .block {
+    margin-bottom: 0;
+  }
+  .block.hero-image {
+    width: 100%;
+    padding: 0;
+  }
+  .block.hero-image img.desktop {
+    display: block;
+  }
+  .block.hero-image img.mobile {
+    display: none;
+  }
+  .block-images {
+    display: flex;
+    margin-top: 28px;
+    justify-content: space-between;
+    /* align children tiles in line, equally spaced */
+  }
+  .block-images > div {
+    display: inline-block;
+    /*height: 275px;*/
+    width: 31%;
+  }
 }
 /*# sourceMappingURL=home.css.map */
