@@ -8,33 +8,28 @@
 }
 
 
-<div class="project-view container">
-    <div class="row">
-        <div class="main-image col-xs-8">
-            @foreach (var item in project.ProjectItems
-                .Where(p => p.IsThumb == false)
-                .OrderBy(p => p.ImageName))
-            {
-                <img src="@(basePath + item.ImageUrl)" alt="@item.AltText" data-hover="@item.ImageCaption"/>
-            }
+<div class="project-view">
+    <div class="side-text">
+        <h1 class="project-title">@project.Title</h1>
 
-        </div>
-        <div class="col-xs-1"></div>
-        <div class="side-text col-xs-4">
-            <h1 class="project-title">@project.Title</h1>
-
+        <div class="project-description">
             <div class="project-description">
-                <div class="project-description">
-                    @Html.Raw(@project.ProjectHtml)
-                </div>
-
-                <div class="back-link">
-                    @Html.ActionLink(backPath, "IndexByType",new { projectType = @Model.ProjectTypePath })
-                </div>
+                @Html.Raw(@project.ProjectHtml)
             </div>
 
+            <div class="back-link">
+                @Html.ActionLink(backPath, "IndexByType", new { projectType = @Model.ProjectTypePath })
+            </div>
         </div>
 
+    </div>
+    <div class="main-image">
+        @foreach (var item in project.ProjectItems
+                .Where(p => p.IsThumb == false)
+                .OrderBy(p => p.ImageName))
+        {
+            <img src="@(basePath + item.ImageUrl)" alt="@item.AltText" data-hover="@item.ImageCaption" />
+        }
 
     </div>
 </div>

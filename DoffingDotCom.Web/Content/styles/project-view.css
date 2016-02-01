@@ -1,4 +1,11 @@
-﻿.italicize {
+﻿.header-font {
+  font-family: 'Montserrat', 'Arial', sans-serif;
+}
+.unstyled-link a {
+  color: initial;
+  text-decoration: none;
+}
+.italicize {
   font-style: italic;
 }
 .project-view p {
@@ -36,4 +43,13 @@
   color: #a7a6a8;
   font-style: italic;
 }
-/*# sourceMappingURL=project-view.css.map */
+@media (min-width: 961px) {
+  .project-view {
+    display: flex;
+  }
+  .project-view .side-text {
+    margin-left: 15px;
+    max-width: 40%;
+    order: 2;
+  }
+}

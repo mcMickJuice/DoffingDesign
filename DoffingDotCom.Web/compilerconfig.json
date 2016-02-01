@@ -2,5 +2,33 @@
   {
     "outputFile": "Content/styles/about.css",
     "inputFile": "Content/styles/about.less"
+  },
+  {
+    "outputFile": "Content/styles/footer.css",
+    "inputFile": "Content/styles/footer.less"
+  },
+  {
+    "outputFile": "Content/styles/global.css",
+    "inputFile": "Content/styles/global.less"
+  },
+  {
+    "outputFile": "Content/styles/header.css",
+    "inputFile": "Content/styles/header.less"
+  },
+  {
+    "outputFile": "Content/styles/home.css",
+    "inputFile": "Content/styles/home.less"
+  },
+  {
+    "outputFile": "Content/styles/project-index.css",
+    "inputFile": "Content/styles/project-index.less"
+  },
+  {
+    "outputFile": "Content/styles/project-view.css",
+    "inputFile": "Content/styles/project-view.less"
+  },
+  {
+    "outputFile": "Content/styles/site.css",
+    "inputFile": "Content/styles/site.less"
   }
 ]

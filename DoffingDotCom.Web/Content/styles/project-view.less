@@ -1,56 +1,69 @@
-﻿@text-color: #414042;
+﻿@import "global.less";
+
 @link-color: #56d4c3;
 
 .italicize {
-  font-style: italic;
+    font-style: italic;
 }
 
 .project-view {
-  p {
-    font-family: "Georgia Regular";
-    line-height: 24px;
-    color: @text-color;
-    font-size: 16px;
-    margin: 15px 0;
-  }
-  
-  h1{
-    text-transform: uppercase;
-    font-size: 18px;
-    font-weight: bold;
-  }
-
-  .project-title {
-      margin: 10px 0;
-  }
-  
-  h2 {
-    font-size: 16px;
-    .italicize
-  }
-  
-  h3 {
-    text-transform: uppercase;
-    font-size: 16px;
-  }
-  
-  a {
-    .italicize
-  }
-  
-  .main-image {
-    
-    img {
-      margin: 10px auto;
-      display: block;
-      max-width: 100%;
-    }
-  }
-  
-  .purchase-detail {
     p {
-      color: darken(@text-color, -40%);
-      .italicize
+        font-family: "Georgia Regular";
+        line-height: 24px;
+        color: @font-color;
+        font-size: 16px;
+        margin: 15px 0;
     }
-  }
+
+    h1 {
+        text-transform: uppercase;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .project-title {
+        margin: 10px 0;
+    }
+
+    h2 {
+        font-size: 16px;
+        .italicize
+    }
+
+    h3 {
+        text-transform: uppercase;
+        font-size: 16px;
+    }
+
+    a {
+        .italicize
+    }
+
+    .main-image {
+        img {
+            margin: 10px auto;
+            display: block;
+            max-width: 100%;
+        }
+    }
+
+    .purchase-detail {
+        p {
+            color: darken(@font-color, -40%);
+            .italicize
+        }
+    }
+}
+
+@media (min-width: @tabletSize) {
+    .project-view {
+        display: flex;
+
+
+        .side-text {
+            margin-left: 15px;
+            max-width: 40%;
+            order: 2;
+        }
+    }
 }
