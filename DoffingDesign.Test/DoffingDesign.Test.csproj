@@ -74,6 +74,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Contact\Integration\MailChimpService_SubscribeTests.cs" />
     <Compile Include="Contact\Unit\MailChimpServiceTests.cs" />
     <Compile Include="Tools\ConsoleDiagnosticLogger.cs" />
     <Compile Include="Contact\Integration\SqlContactService_AddEmailContactTests.cs" />
