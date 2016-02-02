@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http.Formatting;
@@ -10,8 +11,10 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Autofac;
+using Autofac.Core;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
+using DoffingDesign.Common;
 using DoffingDesign.DAL;
 using DoffingDesign.DAL.EntityModels;
 using DoffingDesign.DAL.Mapping;
@@ -42,7 +45,24 @@ namespace DoffingDotCom.Web
             builder.RegisterType<SqlProjectEnumService>().As<IProjectEnumService>();
             builder.RegisterType<DiagnosticLogger>().As<IDiagnosticLogger>();
 
-            //database connection
+            //contact services
+            var key = ThirdPartyCredentials.MailChimpApiKey;
+            var endpoint = ThirdPartyCredentials.MailchimpApiEndpoint;
+            var listId = ThirdPartyCredentials.DefaultListId;
+            var credentials = new MailChimpCredentials(key, endpoint, listId);
+
+            builder.Register(c =>
+            {
+                var httpClient = c.Resolve<IHttpClient>();
+                var serializer = c.Resolve<IJsonSerializer>();
+                return new MailChimpService(httpClient, serializer, credentials);
+            }).As<INewsletterService>();
+
+            builder.RegisterType<HttpClientWrapper>().As<IHttpClient>();
+            builder.RegisterType<JsonNetSerializer>().As<IJsonSerializer>();
+
+
+           //database connection
             //TODO THIS NEEDS TO COME FROM A SERVICE!
             var connString = EnvironmentSettings.GetConnectionString();
             builder.RegisterType<DoffingDotComModel>().As<IDoffingDotComModel>()
@@ -54,6 +74,8 @@ namespace DoffingDotCom.Web
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
             var jsonSerializer = GlobalConfiguration.Configuration.Formatters.OfType<JsonMediaTypeFormatter>().First();
             jsonSerializer.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
+            
 
             var container = builder.Build();
 

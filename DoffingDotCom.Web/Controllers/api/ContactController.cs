@@ -19,20 +19,19 @@ namespace DoffingDotCom.Web.Controllers.api
 
         [HttpPost]
         [Route("contact")]
-        public async Task<Confirmation> Contact(ContactInformation contactInfo)
+        public Task<Confirmation> Contact(ContactInformation contactInfo)
         {
             throw new NotImplementedException();
-            var confirmation = await _contactService.SendContactForm(contactInfo);
-            return confirmation;
+            //var confirmation = await _contactService.SendContactForm(contactInfo);
+            //return confirmation;
         }
 
         [HttpPost]
         [Route("newsletter")]
         public async Task<Confirmation> JoinNewsletter(BasicInformation basicInfo)
         {
-//            var confirmation = await _contactService.JoinNewsletter(basicInfo);
-//            return confirmation;
-            throw new NotImplementedException();
+            var confirmation = await _contactService.JoinNewsletter(basicInfo);
+            return confirmation;
         }
     }
 }

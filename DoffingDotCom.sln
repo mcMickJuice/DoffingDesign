@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoffingDotCom.Web", "DoffingDotCom.Web\DoffingDotCom.Web.csproj", "{E9A80799-414F-490B-871F-0EA3C8E1E34A}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoffingDesign.Service", "DoffingDesign.Service\DoffingDesign.Service.csproj", "{D06C6639-7C03-4E8B-9B68-3C1832FD4A1C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoffingDesign.Test", "DoffingDesign.Test\DoffingDesign.Test.csproj", "{C0A21C7B-8DBA-4178-8F48-5EB5ED9E7711}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoffingDesign.Common", "DoffingDesign.Common\DoffingDesign.Common.csproj", "{5F162478-DB73-4BC6-9E32-941F595B920C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +44,12 @@ Global
 		{C0A21C7B-8DBA-4178-8F48-5EB5ED9E7711}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C0A21C7B-8DBA-4178-8F48-5EB5ED9E7711}.Test|Any CPU.ActiveCfg = Release|Any CPU
 		{C0A21C7B-8DBA-4178-8F48-5EB5ED9E7711}.Test|Any CPU.Build.0 = Release|Any CPU
+		{5F162478-DB73-4BC6-9E32-941F595B920C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F162478-DB73-4BC6-9E32-941F595B920C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F162478-DB73-4BC6-9E32-941F595B920C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F162478-DB73-4BC6-9E32-941F595B920C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F162478-DB73-4BC6-9E32-941F595B920C}.Test|Any CPU.ActiveCfg = Release|Any CPU
+		{5F162478-DB73-4BC6-9E32-941F595B920C}.Test|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

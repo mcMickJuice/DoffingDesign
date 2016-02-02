@@ -55,14 +55,14 @@ namespace DoffingDotCom.Web.Controllers
 
         [HttpPut]
         [Route("")]
-        public async Task<Project> Edit(Project project)
+        public Task<Project> Edit(Project project)
         {
             throw new NotImplementedException();
         }
 
         [HttpDelete]
         [Route("{id}")]
-        public async Task<bool> Deactivate(string id)
+        public Task<bool> Deactivate(string id)
         {
             throw new NotImplementedException();
 

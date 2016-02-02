@@ -33,7 +33,7 @@ namespace DoffingDesign.DAL.Helpers
             //TODO
 #warning hash out compare slug
 
-            return slug1 == slug2;
+            //return slug1 == slug2;
         }
     }
 }
