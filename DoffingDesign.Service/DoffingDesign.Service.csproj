@@ -78,7 +78,6 @@
     <Compile Include="Models\ProjectType.cs" />
     <Compile Include="Models\ProjectTypeInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Security\DbAccess.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
