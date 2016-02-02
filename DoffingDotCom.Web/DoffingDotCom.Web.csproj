@@ -288,7 +288,7 @@
     <Content Include="Content\images\project-items\Thumb_SimplePatterns_RetroFloral_800 copy.png" />
     <Content Include="Content\images\project-items\Thumb_Sketchbook_Auryn_800.jpg" />
     <Content Include="Content\images\project-items\Thumb_TwinCities_Minneapolis_800.png" />
-    <Content Include="Content\images\sm-sprite-1.jpg" />
+    <Content Include="Content\images\sm-sprite-1.png" />
     <Content Include="Content\images\vector.jpg" />
     <Content Include="Content\styles\about.css">
       <DependentUpon>about.less</DependentUpon>
