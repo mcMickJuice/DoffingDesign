@@ -1,8 +1,9 @@
-﻿@using DoffingDotCom.Web.Services
+﻿@using DoffingDesign.Service.Models
+@using DoffingDotCom.Web.Secrets
 @model DoffingDotCom.Web.Models.Project.ProjectViewModel
 
 @{
-    var basePath = ConfigProvider.ImagePath;
+    var basePath = EnvironmentSettings.ProjectImagePath;
     var backPath = string.Format("< Back to {0}", Model.ProjectTypeName);
     var project = Model.Project;
 }
@@ -28,8 +29,14 @@
                 .Where(p => p.IsThumb == false)
                 .OrderBy(p => p.ImageName))
         {
-            <img src="@(basePath + item.ImageUrl)" alt="@item.AltText" data-hover="@item.ImageCaption" />
+            @DoffingImage(basePath, item)
         }
 
     </div>
 </div>
+
+@helper DoffingImage(string basePath, ProjectItem model)
+{
+    
+    <img src="@Path.Combine(basePath, model.ImageUrl)" alt="model.AltText" data-hover="model.ImageCaption" />
+}

@@ -1,8 +1,11 @@
-﻿@{
+﻿@using DoffingDotCom.Web.Secrets
+@{
     ViewBag.Title = "About Alexandra Doffing";
+    var cdnPath = EnvironmentSettings.CdnPath;
+
 }
 <div class="col-sm-3">
-    <img src="/Content/images/about-alex.png" alt="Alex Doffing" class="about" />
+    <img src="@cdnPath/about-alex.png" alt="Alex Doffing" class="about" />
 </div>
 <div class="col-sm-9 about-body">
     <div class="about-me-body">

@@ -1,5 +1,7 @@
-﻿@{
+﻿@using DoffingDotCom.Web.Secrets
+@{
     ViewBag.Title = "Alexandra Doffing Design";
+    var cdnPath = EnvironmentSettings.CdnPath;
 }
 
 @section head
@@ -11,24 +13,24 @@
 <div class="main">
     <div class="block hero-image">
         <a href="~/Project/Patterns/handmade-florals">
-            <img src="~/Content/images/hero-anemones.jpg" alt="Hero Anemones" class="desktop" />
-            <img src="~/Content/images/hero-anemones-mobile.jpg" alt="Hero Anemones" class="mobile"/>
+            <img src="@cdnPath/hero-anemones.jpg" alt="Hero Anemones" class="desktop"/>
+            <img src="@cdnPath/hero-anemones-mobile.jpg" alt="Hero Anemones" class="mobile"/>
         </a>
     </div>
     <div class="block-images">
         <div class="block coloring-book">
             <a href="~/Project/Illustration/adult-coloring-book">
-                <img src="~/Content/images/block-1-coloring.png" alt="Coloring Book" />
+                <img src="@cdnPath/block-1-coloring.png" alt="Coloring Book"/>
             </a>
         </div>
         <div class="block portraits">
             <a href="~/Project/FineArt/flowers-in-her-hair">
-                <img src="~/Content/images/block-2-portraits.jpg" alt="Portraits" />
+                <img src="@cdnPath/block-2-portraits.jpg" alt="Portraits"/>
             </a>
         </div>
         <div class="block cmbn">
             <a href="~/Project/Illustration/city-moms-blog-network">
-                <img src="/Content/images/block-3-cmbn.png" alt="City Mom Blog Network" />
+                <img src="@cdnPath/block-3-cmbn.png" alt="City Mom Blog Network"/>
             </a>
         </div>
     </div>

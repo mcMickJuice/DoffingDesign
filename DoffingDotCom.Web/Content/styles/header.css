@@ -9,7 +9,7 @@
   height: 90px;
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  border-bottom-color: #ffebe8;
+  border-bottom-color: #FFEBE8;
   /*@media (max-width: @small-width) {
         div.site-links-icon {
             display: inline-block;
@@ -108,4 +108,3 @@
 .header div.navigation nav li:not(:last-child) {
   margin-right: 40px;
 }
-/*# sourceMappingURL=header.css.map */

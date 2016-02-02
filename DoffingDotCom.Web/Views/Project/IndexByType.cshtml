@@ -1,9 +1,10 @@
-﻿@using DoffingDotCom.Web.Services
+﻿@using DoffingDotCom.Web.Secrets
+@using DoffingDotCom.Web.Services
 @model DoffingDotCom.Web.Models.Project.ProjectListViewModel
 
 @{
     ViewBag.Title = @Model.ProjectType + " Projects";
-    var basePath = ConfigProvider.ImagePath;
+    var basePath = EnvironmentSettings.ProjectImagePath;
 }
 
 <h3 class="body-header">@Model.ProjectType</h3>
@@ -13,14 +14,18 @@
     <div class="col-sm-4 tile">
         <a href="~/Project/@Model.ProjectPath/@proj.ProjectId">
             <div class="image">
-                <img src="@(basePath + proj.ThumbProject.ImageUrl)" alt="@proj.Title" />
+                @DoffingTileImage(basePath, proj)
                 <div class="project-title">
                     <span>@proj.Title</span>
                 </div>
             </div>
         </a>
     </div>
+}
 
+@helper DoffingTileImage(string basePath, DoffingDesign.Service.Models.Project model)
+{
 
+    <img src="@Path.Combine(basePath, model.ThumbProject.ImageUrl)" alt="model.Title" />
 }
 
