@@ -6,6 +6,7 @@ using DoffingDesign.Service;
 using DoffingDesign.Service.Models.Contact;
 using DoffingDesign.Test.Tools;
 using DoffingDotCom.Web.Secrets;
+using Moq;
 using NUnit.Framework;
 
 namespace DoffingDesign.Test.Contact.Integration
@@ -20,8 +21,9 @@ namespace DoffingDesign.Test.Contact.Integration
         {
             var connString = EnvironmentSettings.GetConnectionString("test");
             var context = new DoffingDotComModel(connString);
+            var newsLetterServiceMock = new Mock<INewsletterService>();
 
-            _contactService = new SqlContactService(context, new ContactMapper(), new ConsoleDiagnosticLogger());
+            _contactService = new SqlContactService(context, newsLetterServiceMock.Object, new ContactMapper(), new ConsoleDiagnosticLogger());
         }
 
         [Test]

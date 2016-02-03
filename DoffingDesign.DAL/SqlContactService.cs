@@ -12,12 +12,14 @@ namespace DoffingDesign.DAL
     public class SqlContactService: IContactService
     {
         private readonly IDoffingDotComModel _context;
+        private readonly INewsletterService _newsletterService;
         private readonly IContactMapper _mapper;
         private readonly IDiagnosticLogger _logger;
 
-        public SqlContactService(IDoffingDotComModel context, IContactMapper mapper, IDiagnosticLogger logger)
+        public SqlContactService(IDoffingDotComModel context, INewsletterService newsletterService, IContactMapper mapper, IDiagnosticLogger logger)
         {
             _context = context;
+            _newsletterService = newsletterService;
             _mapper = mapper;
             _logger = logger;
         }
@@ -48,9 +50,17 @@ namespace DoffingDesign.DAL
             return new Confirmation(string.Join("\r\n", errorMessages));
         }
 
-        public Task<Confirmation> JoinNewsletter(BasicInformation information)
+        public async Task<Confirmation> JoinNewsletter(BasicInformation information)
         {
-            throw new NotImplementedException();
+            //save off email address
+            var result = await _newsletterService.Subscribe(information);
+
+            if (result.WasSuccessful == false)
+            {
+                return new Confirmation(result.Observations.FirstOrDefault()?.Error);
+            }
+
+            return Confirmation.Success();
         }
 
         private async Task<Confirmation> InsertContactInfo(IEnumerable<ContactInfo> infos)

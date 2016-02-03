@@ -46,6 +46,9 @@ namespace DoffingDotCom.Web
             builder.RegisterType<DiagnosticLogger>().As<IDiagnosticLogger>();
 
             //contact services
+            builder.RegisterType<SqlContactService>().As<IContactService>();
+            builder.RegisterType<ContactMapper>().As<IContactMapper>();
+
             var key = ThirdPartyCredentials.MailChimpApiKey;
             var endpoint = ThirdPartyCredentials.MailchimpApiEndpoint;
             var listId = ThirdPartyCredentials.DefaultListId;

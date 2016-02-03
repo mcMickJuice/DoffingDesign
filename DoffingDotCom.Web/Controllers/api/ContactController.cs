@@ -18,7 +18,7 @@ namespace DoffingDotCom.Web.Controllers.api
         }
 
         [HttpPost]
-        [Route("contact")]
+        [Route("")]
         public Task<Confirmation> Contact(ContactInformation contactInfo)
         {
             throw new NotImplementedException();
@@ -28,9 +28,9 @@ namespace DoffingDotCom.Web.Controllers.api
 
         [HttpPost]
         [Route("newsletter")]
-        public async Task<Confirmation> JoinNewsletter(BasicInformation basicInfo)
+        public async Task<Confirmation> JoinNewsletter(BasicInformation info)
         {
-            var confirmation = await _contactService.JoinNewsletter(basicInfo);
+            var confirmation = await _contactService.JoinNewsletter(info);
             return confirmation;
         }
     }

@@ -1,0 +1,65 @@
+﻿
+
+<div class="subscribe-form-block">
+    <p>Sign up for my newsletter!</p>
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "newsletter-form" }))
+    {
+        <label for="email">Email</label>
+        <input type="text" name="email" id="emailInput" placeholder="Please provide your email" />
+
+        <button type="button" id="subscribe">Subscribe</button>
+    }
+</div>
+
+<script>
+    @functions{
+
+        public string TokenHeaderValue()
+        {
+            string cookieToken, formToken;
+            AntiForgery.GetTokens(null, out cookieToken, out formToken);
+            return cookieToken + ":" + formToken;
+        }
+
+    }
+
+    (function () {
+        //var form = $('form.newsletter-form');
+
+        var $button = $('#subscribe'),
+            $emailForm = $('#emailInput'),
+            $formBlock = $('.subscribe-form-block');
+
+
+        $button.click(function (evt) {
+            evt.preventDefault();
+            console.log('im clicked!');
+
+            debugger;
+            var val = $emailForm.val();
+
+            $.ajax("api/contact/newsletter", {
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ email: val }),
+
+                dataType: 'json',
+                headers: {
+                    'RequestVerificationToken': '@TokenHeaderValue()'
+                },
+                success: onSuccess,
+                error: onError
+            });
+        });
+
+        function onSuccess(resp) {
+            //confirm success!
+            console.log(resp);
+        }
+
+        function onError(err, xhr, some) {
+            //what do we do here????
+            console.log(err, xhr, some);
+        }
+    })()
+</script>

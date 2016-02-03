@@ -198,6 +198,7 @@
     <Compile Include="Controllers\ProjectAdminController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\ProjectValuesApiController.cs" />
+    <Compile Include="Filters\ValidateAjaxToken.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -462,6 +463,7 @@
     <Content Include="Views\Project\_DescriptionOnRight.cshtml" />
     <Content Include="Views\Project\_DescriptionOnLeft.cshtml" />
     <Content Include="Views\ProjectAdmin\Index.cshtml" />
+    <Content Include="Views\Shared\_NewsletterForm.cshtml" />
     <None Include="Web.Test.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alexandra Doffing Design</title>
     @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/modernizr")
 
     @RenderSection("head", false)
@@ -67,6 +68,8 @@
         @RenderBody()
     </div>
     <div class="container">
+
+        @Html.Partial("_NewsletterForm")
         <div class="footer row">
             <div class="col-md-7">
                 <div class="copyright">
@@ -112,7 +115,6 @@
         </div>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 
