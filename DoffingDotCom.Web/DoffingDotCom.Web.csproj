@@ -213,6 +213,7 @@
     <Compile Include="Secrets\ThirdPartyCredentials.cs" />
     <Compile Include="Services\ConfigProvider.cs" />
     <Compile Include="Services\DiagnosticLogger.cs" />
+    <Compile Include="Services\RequestForgeryService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

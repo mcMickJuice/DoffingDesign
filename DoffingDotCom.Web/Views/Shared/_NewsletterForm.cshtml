@@ -1,4 +1,5 @@
-﻿
+﻿@using DoffingDotCom.Web.Services
+
 
 <div class="subscribe-form-block">
     <p>Sign up for my newsletter!</p>
@@ -43,7 +44,7 @@
 
                 dataType: 'json',
                 headers: {
-                    'RequestVerificationToken': '@TokenHeaderValue()'
+                    '@RequestForgeryService.TokenHeader': '@RequestForgeryService.GetTokenHeaderValue()'
                 },
                 success: onSuccess,
                 error: onError
