@@ -3,11 +3,11 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using DoffingDesign.Service;
 using DoffingDesign.Service.Models.Contact;
+using DoffingDotCom.Web.Filters;
 
 namespace DoffingDotCom.Web.Controllers.api
 {
     [RoutePrefix("api/contact")]
-    //TODO LOCK THIS DOWN WITH A SECURITY ATTRIBUTE
     public class ContactController : ApiController
     {
         private readonly IContactService _contactService;
@@ -28,6 +28,7 @@ namespace DoffingDotCom.Web.Controllers.api
 
         [HttpPost]
         [Route("newsletter")]
+        [ValidateAjaxToken]
         public async Task<Confirmation> JoinNewsletter(BasicInformation info)
         {
             var confirmation = await _contactService.JoinNewsletter(info);

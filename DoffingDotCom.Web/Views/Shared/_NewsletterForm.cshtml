@@ -24,8 +24,6 @@
     }
 
     (function () {
-        //var form = $('form.newsletter-form');
-
         var $button = $('#subscribe'),
             $emailForm = $('#emailInput'),
             $formBlock = $('.subscribe-form-block');
@@ -33,15 +31,15 @@
 
         $button.click(function (evt) {
             evt.preventDefault();
-            console.log('im clicked!');
 
-            debugger;
-            var val = $emailForm.val();
+            var data = {
+                email: $emailForm.val()
+            };
 
             $.ajax("api/contact/newsletter", {
                 type: 'POST',
                 contentType: 'application/json',
-                data: JSON.stringify({ email: val }),
+                data: JSON.stringify(data),
 
                 dataType: 'json',
                 headers: {
@@ -55,6 +53,7 @@
         function onSuccess(resp) {
             //confirm success!
             console.log(resp);
+            $emailForm.val('');
         }
 
         function onError(err, xhr, some) {
