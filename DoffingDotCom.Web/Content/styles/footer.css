@@ -7,9 +7,9 @@
 }
 .footer {
   font-family: 'Montserrat', 'Arial', sans-serif;
-}
-.footer > div {
-  position: relative;
+  /*& > div {
+        position: relative;
+    }*/
 }
 .footer .copyright {
   text-transform: uppercase;
@@ -143,6 +143,12 @@
 }
 @media (min-width: 961px) {
   .footer {
-    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    margin: 30px auto 0 auto;
+    max-width: 80%;
+  }
+  .footer > div {
+    width: 46%;
   }
 }

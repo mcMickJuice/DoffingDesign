@@ -46,4 +46,27 @@
 
 
 @media(min-width: @tabletSize) {
+    .subscribe-form-block {
+        padding: 20px;
+
+        .email-form {
+            display: flex;
+            justify-content:flex-start;
+            > div {
+                margin: 6px auto;
+                width: 90%;
+            }
+
+            input {
+                padding: 2px;
+                font-size: 1.1em;
+                width: 100%;
+            }
+
+            .button {
+                position:relative;
+                top: -1px;
+            }
+        }
+    }
 }

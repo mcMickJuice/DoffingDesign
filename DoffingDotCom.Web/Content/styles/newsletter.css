@@ -36,3 +36,25 @@
 .subscribe-form-block .email-form .button.pressed {
   box-shadow: 0 0 0 0;
 }
+@media (min-width: 961px) {
+  .subscribe-form-block {
+    padding: 20px;
+  }
+  .subscribe-form-block .email-form {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .subscribe-form-block .email-form > div {
+    margin: 6px auto;
+    width: 90%;
+  }
+  .subscribe-form-block .email-form input {
+    padding: 2px;
+    font-size: 1.1em;
+    width: 100%;
+  }
+  .subscribe-form-block .email-form .button {
+    position: relative;
+    top: -1px;
+  }
+}

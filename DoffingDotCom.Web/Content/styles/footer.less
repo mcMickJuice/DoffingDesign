@@ -16,18 +16,15 @@
 
 .footer {
     .header-font;
-
-    & > div {
+    /*& > div {
         position: relative;
-    }
-
+    }*/
     .copyright {
         text-transform: uppercase;
-    font-size: 10px;
-
+        font-size: 10px;
         letter-spacing: 2px;
 
-         @media (max-width: @medium-width) {
+        @media (max-width: @medium-width) {
             text-align: center;
         }
     }
@@ -35,25 +32,24 @@
     .social-links {
         position: relative;
         right: -30%; //align to left and slide on widht change
-
         @media (max-width: @medium-width) {
             margin: auto;
             width: 45%;
-            right:0;
+            right: 0;
         }
 
         div {
             display: inline-block;
 
             a {
-                display: inline-block;  
+                display: inline-block;
                 height: 27px;
                 width: 27px;
                 background-repeat: no-repeat;
                 cursor: pointer;
             }
 
-            &.tumblr > a  {
+            &.tumblr > a {
                 .sprite-position(0);
 
                 &:hover {
@@ -61,7 +57,7 @@
                 }
             }
 
-            &.dribbble > a{
+            &.dribbble > a {
                 .sprite-position(1);
 
                 &:hover {
@@ -69,7 +65,7 @@
                 }
             }
 
-            &.instagram > a{
+            &.instagram > a {
                 .sprite-position(2);
 
                 &:hover {
@@ -77,7 +73,7 @@
                 }
             }
 
-            &.behance > a{
+            &.behance > a {
                 .sprite-position(3);
 
                 &:hover {
@@ -85,7 +81,7 @@
                 }
             }
 
-            &.linkedin > a{
+            &.linkedin > a {
                 .sprite-position(4);
 
                 &:hover {
@@ -93,7 +89,7 @@
                 }
             }
 
-            &.facebook > a{
+            &.facebook > a {
                 .sprite-position(5);
 
                 &:hover {
@@ -101,7 +97,7 @@
                 }
             }
 
-            &.twitter > a{
+            &.twitter > a {
                 .sprite-position(6);
 
                 &:hover {
@@ -109,7 +105,7 @@
                 }
             }
 
-            &.etsy > a{
+            &.etsy > a {
                 .sprite-position(7);
 
                 &:hover {
@@ -117,7 +113,7 @@
                 }
             }
 
-            &.society6 > a{
+            &.society6 > a {
                 .sprite-position(8);
 
                 &:hover {
@@ -130,7 +126,13 @@
 
 @media(min-width: @tabletSize) {
     .footer {
-    margin-top: 50px;
+        display: flex;
+        justify-content: space-between;
+        margin: 30px auto 0 auto;
+        max-width: 80%;
 
+        > div {
+            width: 46%;
+        }
     }
 }
