@@ -1,0 +1,49 @@
+﻿@import "global.less";
+
+
+.subscribe-form-block {
+    .subscribed {
+    }
+
+    background-color: #ffece8;
+    padding: 45px 0;
+
+    .callout {
+        text-align: center;
+        font-size: 1.2em;
+        font-weight: bolder;
+    }
+
+    .email-form {
+        > div {
+            margin: 6px auto;
+            width: 90%;
+        }
+
+        input {
+            padding: 5px;
+            font-size: 1.6em;
+            width: 100%;
+        }
+
+        .button {
+            //make this flatter;
+            margin: auto;
+            border-radius: 4px;
+            padding: 5px;
+            cursor: pointer;
+            box-shadow: 1px 1px 1px 0;
+            text-align: center;
+            width: 50%;
+            background-color: #e9e4e0;
+
+            &.pressed {
+                box-shadow: 0 0 0 0;
+            }
+        }
+    }
+}
+
+
+@media(min-width: @tabletSize) {
+}

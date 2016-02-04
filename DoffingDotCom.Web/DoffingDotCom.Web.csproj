@@ -332,6 +332,12 @@
     <Content Include="Content\styles\home.min.css">
       <DependentUpon>home.css</DependentUpon>
     </Content>
+    <Content Include="Content\styles\newsletter.css">
+      <DependentUpon>newsletter.less</DependentUpon>
+    </Content>
+    <Content Include="Content\styles\newsletter.min.css">
+      <DependentUpon>newsletter.css</DependentUpon>
+    </Content>
     <Content Include="Content\styles\project-index.css">
       <DependentUpon>project-index.less</DependentUpon>
     </Content>
@@ -404,6 +410,7 @@
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <Content Include="Content\styles\secrets\imageVariables.less" />
+    <Content Include="Content\styles\newsletter.less" />
     <None Include="Properties\PublishProfiles\LocalDeploy.pubxml" />
     <None Include="Properties\PublishProfiles\mjJuiceSampleApp - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\mjJuiceSampleApp - Web Deploy.pubxml" />

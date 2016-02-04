@@ -34,5 +34,9 @@
   {
     "outputFile": "Content/styles/secrets/imageVariables.css",
     "inputFile": "Content/styles/secrets/imageVariables.less"
+  },
+  {
+    "outputFile": "Content/styles/newsletter.css",
+    "inputFile": "Content/styles/newsletter.less"
   }
 ]

@@ -66,17 +66,12 @@
 
     <div class="container body-content">
         @RenderBody()
-    </div>
-    <div class="container">
 
-        @Html.Partial("_NewsletterForm")
-        <div class="footer row">
-            <div class="col-md-7">
-                <div class="copyright">
-                    &copy; @year <span>&middot;</span> All Rights Reserved <span>&middot;</span>  Alexandra Doffing Design, LLC
-                </div>
+        <div class="footer">
+            <div class="block newsletter">
+                @Html.Partial("_NewsletterForm")
             </div>
-            <div class="col-md-5">
+            <div class="misc">
                 <div class="social-links">
                     <div class="tumblr">
                         <a href="http://doffingdesign.tumblr.com/" target="_blank"></a>
@@ -106,11 +101,12 @@
                     </div>
                     <div class="society6">
                         <a href="https://society6.com/doffingdesign" target="_blank"></a>
-
                     </div>
 
                 </div>
-
+                <div class="copyright">
+                    &copy; @year <span>&middot;</span> All Rights Reserved <span>&middot;</span>  Alexandra Doffing Design, LLC
+                </div>
             </div>
         </div>
     </div>
