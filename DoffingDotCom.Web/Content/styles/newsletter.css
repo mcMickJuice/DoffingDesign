@@ -25,7 +25,7 @@
   max-width: initial;
 }
 .subscribe-form-block .email-form .button {
-  margin-left: 10%;
+  margin: auto;
   border-radius: 4px;
   padding: 5px;
   cursor: pointer;
@@ -60,5 +60,6 @@
   .subscribe-form-block .email-form .button {
     position: relative;
     top: -1px;
+    margin-left: 10%;
   }
 }
