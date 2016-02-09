@@ -53,6 +53,10 @@ namespace DoffingDesign.DAL
         public async Task<Confirmation> JoinNewsletter(BasicInformation information)
         {
             //save off email address
+            var subscribeInfo = _mapper.ToNewsletterContact(information);
+
+            await InsertContactInfo(subscribeInfo);
+
             var result = await _newsletterService.Subscribe(information);
 
             if (result.WasSuccessful == false)
@@ -61,6 +65,11 @@ namespace DoffingDesign.DAL
             }
 
             return Confirmation.Success();
+        }
+
+        private Task<Confirmation> InsertContactInfo(ContactInfo info)
+        {
+            return InsertContactInfo(new [] {info});
         }
 
         private async Task<Confirmation> InsertContactInfo(IEnumerable<ContactInfo> infos)
