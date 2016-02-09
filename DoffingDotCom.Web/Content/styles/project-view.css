@@ -43,7 +43,7 @@
   color: #a7a6a8;
   font-style: italic;
 }
-@media (min-width: 961px) {
+@media (min-width: 970px) {
   .project-view {
     display: flex;
   }

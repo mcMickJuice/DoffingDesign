@@ -16,108 +16,104 @@
 
 .footer {
     .header-font;
-    /*& > div {
-        position: relative;
-    }*/
-    .copyright {
-        text-transform: uppercase;
-        font-size: 10px;
-        letter-spacing: 2px;
 
-        @media (max-width: @medium-width) {
+    .misc {
+
+        > div {
+            margin: 10px 0;
+        }
+
+
+        .copyright {
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 2px;
             text-align: center;
         }
-    }
 
-    .social-links {
-        position: relative;
-        right: -30%; //align to left and slide on widht change
-        @media (max-width: @medium-width) {
-            margin: auto;
-            width: 45%;
-            right: 0;
-        }
+        .social-links {
+            display: flex;
+            justify-content: space-between;
 
-        div {
-            display: inline-block;
-
-            a {
-                display: inline-block;
-                height: 27px;
-                width: 27px;
-                background-repeat: no-repeat;
-                cursor: pointer;
-            }
-
-            &.tumblr > a {
-                .sprite-position(0);
-
-                &:hover {
-                    .sprite-position(0,true);
+            div {
+                a {
+                    display: inline-block;
+                    height: 27px;
+                    width: 27px;
+                    background-repeat: no-repeat;
+                    cursor: pointer;
                 }
-            }
 
-            &.dribbble > a {
-                .sprite-position(1);
+                &.tumblr > a {
+                    .sprite-position(0);
 
-                &:hover {
-                    .sprite-position(1,true);
+                    &:hover {
+                        .sprite-position(0,true);
+                    }
                 }
-            }
 
-            &.instagram > a {
-                .sprite-position(2);
+                &.dribbble > a {
+                    .sprite-position(1);
 
-                &:hover {
-                    .sprite-position(2,true);
+                    &:hover {
+                        .sprite-position(1,true);
+                    }
                 }
-            }
 
-            &.behance > a {
-                .sprite-position(3);
+                &.instagram > a {
+                    .sprite-position(2);
 
-                &:hover {
-                    .sprite-position(3,true);
+                    &:hover {
+                        .sprite-position(2,true);
+                    }
                 }
-            }
 
-            &.linkedin > a {
-                .sprite-position(4);
+                &.behance > a {
+                    .sprite-position(3);
 
-                &:hover {
-                    .sprite-position(4,true);
+                    &:hover {
+                        .sprite-position(3,true);
+                    }
                 }
-            }
 
-            &.facebook > a {
-                .sprite-position(5);
+                &.linkedin > a {
+                    .sprite-position(4);
 
-                &:hover {
-                    .sprite-position(5,true);
+                    &:hover {
+                        .sprite-position(4,true);
+                    }
                 }
-            }
 
-            &.twitter > a {
-                .sprite-position(6);
+                &.facebook > a {
+                    .sprite-position(5);
 
-                &:hover {
-                    .sprite-position(6,true);
+                    &:hover {
+                        .sprite-position(5,true);
+                    }
                 }
-            }
 
-            &.etsy > a {
-                .sprite-position(7);
+                &.twitter > a {
+                    .sprite-position(6);
 
-                &:hover {
-                    .sprite-position(7,true);
+                    &:hover {
+                        .sprite-position(6,true);
+                    }
                 }
-            }
 
-            &.society6 > a {
-                .sprite-position(8);
+                &.etsy > a {
+                    .sprite-position(7);
 
-                &:hover {
-                    .sprite-position(8,true);
+                    &:hover {
+                        .sprite-position(7,true);
+                    }
+                }
+
+                &.society6 > a {
+                    .sprite-position(8);
+
+                    &:hover {
+                        .sprite-position(8,true);
+                    }
                 }
             }
         }
@@ -126,13 +122,29 @@
 
 @media(min-width: @tabletSize) {
     .footer {
+        max-width: 970px * .95;
         display: flex;
         justify-content: space-between;
-        margin: 30px auto 0 auto;
-        max-width: 80%;
+        margin: 30px auto;
 
         > div {
-            width: 46%;
+            max-width: 46%;
         }
+
+        .misc {
+            .social-links {
+                justify-content: flex-end;
+
+                > div {
+                    margin-left: 4%;
+                }
+            }
+        }
+    }
+}
+
+@media(min-width: @desktopSize) {
+    .footer {
+        max-width: 1170px * .95;
     }
 }

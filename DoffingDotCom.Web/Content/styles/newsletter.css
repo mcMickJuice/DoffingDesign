@@ -10,35 +10,39 @@
   padding: 45px 0;
 }
 .subscribe-form-block .callout {
-  text-align: center;
   font-size: 1.2em;
-  font-weight: bolder;
+  text-align: center;
 }
 .subscribe-form-block .email-form > div {
   margin: 6px auto;
-  width: 90%;
+  width: 80%;
+  max-width: 400px;
 }
 .subscribe-form-block .email-form input {
   padding: 5px;
   font-size: 1.6em;
   width: 100%;
+  max-width: initial;
 }
 .subscribe-form-block .email-form .button {
-  margin: auto;
+  margin-left: 10%;
   border-radius: 4px;
   padding: 5px;
   cursor: pointer;
-  box-shadow: 1px 1px 1px 0;
   text-align: center;
   width: 50%;
-  background-color: #e9e4e0;
+  color: white;
+  background-color: #414042;
 }
 .subscribe-form-block .email-form .button.pressed {
   box-shadow: 0 0 0 0;
 }
-@media (min-width: 961px) {
+@media (min-width: 970px) {
   .subscribe-form-block {
     padding: 20px;
+  }
+  .subscribe-form-block .callout {
+    text-align: initial;
   }
   .subscribe-form-block .email-form {
     display: flex;

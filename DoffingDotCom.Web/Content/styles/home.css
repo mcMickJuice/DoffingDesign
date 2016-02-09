@@ -8,7 +8,7 @@
 @media (min-width: 481px) {
   /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
 }
-@media (min-width: 961px) {
+@media (min-width: 970px) {
   /* tablet, landscape iPad, lo-res laptops ands desktops */
 }
 @media (min-width: 1025px) {
@@ -45,7 +45,7 @@
 .block > a > img {
   width: 100%;
 }
-@media (min-width: 961px) {
+@media (min-width: 970px) {
   .main {
     width: 90%;
   }

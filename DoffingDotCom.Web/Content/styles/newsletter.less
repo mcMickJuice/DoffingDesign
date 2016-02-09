@@ -9,33 +9,35 @@
     padding: 45px 0;
 
     .callout {
-        text-align: center;
         font-size: 1.2em;
-        font-weight: bolder;
+        text-align: center;
     }
 
     .email-form {
         > div {
             margin: 6px auto;
-            width: 90%;
+            width: 80%;
+            max-width: 400px;
+            
         }
 
         input {
-            padding: 5px;
-            font-size: 1.6em;
-            width: 100%;
-        }
+                padding: 5px;
+                font-size: 1.6em;
+                width: 100%;
+                max-width: initial;
+            }
 
         .button {
             //make this flatter;
-            margin: auto;
+            margin-left: 10%;
             border-radius: 4px;
             padding: 5px;
             cursor: pointer;
-            box-shadow: 1px 1px 1px 0;
             text-align: center;
             width: 50%;
-            background-color: #e9e4e0;
+            color: white;
+            background-color: #414042;
 
             &.pressed {
                 box-shadow: 0 0 0 0;
@@ -49,9 +51,14 @@
     .subscribe-form-block {
         padding: 20px;
 
+        .callout {
+            text-align: initial;
+        }
+
         .email-form {
             display: flex;
-            justify-content:flex-start;
+            justify-content: flex-start;
+
             > div {
                 margin: 6px auto;
                 width: 90%;
@@ -64,7 +71,7 @@
             }
 
             .button {
-                position:relative;
+                position: relative;
                 top: -1px;
             }
         }
