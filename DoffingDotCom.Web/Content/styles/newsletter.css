@@ -33,9 +33,16 @@
   width: 50%;
   color: white;
   background-color: #414042;
+  -moz-transition: background-color ease-in 0.2s;
+  -o-transition: background-color ease-in 0.2s;
+  -webkit-transition: background-color ease-in 0.2s;
+  transition: background-color ease-in 0.2s;
 }
 .subscribe-form-block .email-form .button.pressed {
   box-shadow: 0 0 0 0;
+}
+.subscribe-form-block .email-form .button.invalid {
+  background-color: #bd2b47;
 }
 @media (min-width: 970px) {
   .subscribe-form-block {

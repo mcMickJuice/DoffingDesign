@@ -48,11 +48,8 @@ namespace DoffingDotCom.Web
             //contact services
             builder.RegisterType<SqlContactService>().As<IContactService>();
             builder.RegisterType<ContactMapper>().As<IContactMapper>();
-
-            var key = ThirdPartyCredentials.MailChimpApiKey;
-            var endpoint = ThirdPartyCredentials.MailchimpApiEndpoint;
-            var listId = ThirdPartyCredentials.DefaultListId;
-            var credentials = new MailChimpCredentials(key, endpoint, listId);
+            
+            var credentials = ThirdPartyCredentials.GetCredentialsForEnvironment();
 
             builder.Register(c =>
             {
@@ -77,9 +74,7 @@ namespace DoffingDotCom.Web
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
             var jsonSerializer = GlobalConfiguration.Configuration.Formatters.OfType<JsonMediaTypeFormatter>().First();
             jsonSerializer.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-
             
-
             var container = builder.Build();
 
             httpConfiguration.DependencyResolver = new AutofacWebApiDependencyResolver(container);
