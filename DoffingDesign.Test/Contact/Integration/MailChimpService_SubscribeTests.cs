@@ -19,18 +19,14 @@ namespace DoffingDesign.Test.Contact.Integration
         [SetUp]
         public void Setup()
         {
-            var key = ThirdPartyCredentials.MailChimpApiKey;
-            var endpoint = ThirdPartyCredentials.MailchimpApiEndpoint;
-            var listId = ThirdPartyCredentials.DefaultListId;
-
-            var credentials = new MailChimpCredentials(key, endpoint, listId);
+            var credentials = ThirdPartyCredentials.GetCredentialsForEnvironment();
             _mailChimpService = new MailChimpService(new HttpClientWrapper(), new JsonNetSerializer(), credentials);
         }
 
         [Test]
         public async Task SubscribeToList()
         {
-            var information = new BasicInformation {Email = "mikejoyce19@gmail.com"};
+            var information = new BasicInformation { Email = "mikejoyce19@gmail.com" };
             var result = await _mailChimpService.Subscribe(information);
 
             Assert.IsTrue(result.WasSuccessful);

@@ -78,7 +78,6 @@
     <Compile Include="Contact\Unit\MailChimpServiceTests.cs" />
     <Compile Include="Tools\ConsoleDiagnosticLogger.cs" />
     <Compile Include="Contact\Integration\SqlContactService_AddEmailContactTests.cs" />
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
