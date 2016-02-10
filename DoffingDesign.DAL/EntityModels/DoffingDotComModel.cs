@@ -20,7 +20,7 @@ namespace DoffingDesign.DAL.EntityModels
             Configuration.LazyLoadingEnabled = false;
         }
 
-        internal DoffingDotComModel()
+        public DoffingDotComModel()
             : this(DefaultDatabaseInfo.ConnectionString)
         {
         }

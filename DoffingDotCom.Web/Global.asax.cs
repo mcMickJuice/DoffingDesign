@@ -44,6 +44,7 @@ namespace DoffingDotCom.Web
             builder.RegisterType<MarkdownService>().As<IMarkdownService>();
             builder.RegisterType<SqlProjectEnumService>().As<IProjectEnumService>();
             builder.RegisterType<DiagnosticLogger>().As<IDiagnosticLogger>();
+            builder.RegisterType<SystemClock>().As<IClock>();
 
             //contact services
             builder.RegisterType<SqlContactService>().As<IContactService>();

@@ -6,6 +6,7 @@ using DoffingDesign.DAL.EntityModels;
 using DoffingDesign.DAL.Mapping;
 using DoffingDesign.Service;
 using DoffingDesign.Service.Models.Contact;
+using LinqKit;
 
 namespace DoffingDesign.DAL
 {
@@ -14,13 +15,15 @@ namespace DoffingDesign.DAL
         private readonly IDoffingDotComModel _context;
         private readonly INewsletterService _newsletterService;
         private readonly IContactMapper _mapper;
+        private readonly IClock _clock;
         private readonly IDiagnosticLogger _logger;
 
-        public SqlContactService(IDoffingDotComModel context, INewsletterService newsletterService, IContactMapper mapper, IDiagnosticLogger logger)
+        public SqlContactService(IDoffingDotComModel context, INewsletterService newsletterService, IContactMapper mapper, IClock clock,IDiagnosticLogger logger)
         {
             _context = context;
             _newsletterService = newsletterService;
             _mapper = mapper;
+            _clock = clock;
             _logger = logger;
         }
 
@@ -75,6 +78,8 @@ namespace DoffingDesign.DAL
         private async Task<Confirmation> InsertContactInfo(IEnumerable<ContactInfo> infos)
         {
             var set = _context.Set<ContactInfo>();
+
+            infos.ForEach(i => i.CreatedDateTime = _clock.Now);
 
             set.AddRange(infos);
 

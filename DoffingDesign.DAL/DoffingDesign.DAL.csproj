@@ -67,6 +67,10 @@
     <Compile Include="Migrations\201601250041240_AddContactInfo.Designer.cs">
       <DependentUpon>201601250041240_AddContactInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201602101144406_ContactInfoCreatedDate.cs" />
+    <Compile Include="Migrations\201602101144406_ContactInfoCreatedDate.Designer.cs">
+      <DependentUpon>201602101144406_ContactInfoCreatedDate.cs</DependentUpon>
+    </Compile>
     <Compile Include="SqlContactService.cs" />
     <Compile Include="SqlProjectEnumService.cs" />
     <Compile Include="EntityModels\DoffingDotComModel.cs" />
@@ -131,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601250041240_AddContactInfo.resx">
       <DependentUpon>201601250041240_AddContactInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602101144406_ContactInfoCreatedDate.resx">
+      <DependentUpon>201602101144406_ContactInfoCreatedDate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

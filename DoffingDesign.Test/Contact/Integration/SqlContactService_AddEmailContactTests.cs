@@ -23,7 +23,7 @@ namespace DoffingDesign.Test.Contact.Integration
             var context = new DoffingDotComModel(connString);
             var newsLetterServiceMock = new Mock<INewsletterService>();
 
-            _contactService = new SqlContactService(context, newsLetterServiceMock.Object, new ContactMapper(), new ConsoleDiagnosticLogger());
+            _contactService = new SqlContactService(context, newsLetterServiceMock.Object, new ContactMapper(), new SystemClock(), new ConsoleDiagnosticLogger());
         }
 
         [Test]

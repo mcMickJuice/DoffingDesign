@@ -14,6 +14,7 @@ namespace DoffingDesign.DAL.EntityModels
         public string Email { get; set; }
         public string Message { get; set; }
         public string Website { get; set; }
+        public DateTime CreatedDateTime { get; set; }
     }
 
     public enum ContactType
