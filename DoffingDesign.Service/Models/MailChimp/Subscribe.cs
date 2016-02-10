@@ -18,10 +18,6 @@ namespace DoffingDesign.Service.Models.MailChimp
 
         [JsonProperty("email")]
         public EmailStruct Email { get; set; }
-
-        //dont send confirmation to subscribe emails
-        [JsonProperty("double_optin")]
-        public bool DoubleOptIn => false;
     }
 
     
