@@ -55,6 +55,9 @@
   bottom: 1px;
   right: 60px;
 }
+.header div.navigation .site-links.hide-me {
+  display: block;
+}
 .header div.navigation .site-links li {
   list-style: none;
   display: inline-block;
@@ -64,12 +67,17 @@
 }
 .header div.navigation .site-links-icon {
   position: absolute;
-  top: 28%;
-  right: 50px;
+  top: 20%;
+  height: 60px;
+  width: 60px;
+  right: 0;
+  cursor: pointer;
 }
 .header div.navigation .site-links-icon:before {
   content: "";
   position: absolute;
+  top: 10%;
+  left: 10px;
   width: 30px;
   height: 26px;
   border-top: 15px double #414042;
@@ -82,12 +90,15 @@
     right: 10%;
   }
   .header div.navigation nav.site-links {
+    z-index: 100;
     position: absolute;
-    display: none;
     margin: auto;
     width: 300px;
     right: 2px;
     bottom: -200px;
+  }
+  .header div.navigation nav.site-links.hide-me {
+    display: none;
   }
   .header div.navigation nav.site-links li {
     list-style: none;

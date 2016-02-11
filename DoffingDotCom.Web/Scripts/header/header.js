@@ -1,10 +1,10 @@
 ﻿(function () {
     $(function () {
-        var $linksIcon = $('.navigation'),
+        var $linksIcon = $('.site-links-icon'),
             $siteLinks = $('.site-links');
 
         $linksIcon.click(function () {
-            $siteLinks.toggle();
+            $siteLinks.toggleClass('hide-me');
         });
     });
 
