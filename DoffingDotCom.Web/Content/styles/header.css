@@ -72,6 +72,7 @@
   width: 60px;
   right: 0;
   cursor: pointer;
+  display: none;
 }
 .header div.navigation .site-links-icon:before {
   content: "";
@@ -115,9 +116,7 @@
   .header div.navigation nav.site-links li:last-child {
     border-radius: 0 0 3px 3px;
   }
-}
-@media (min-width: 1025px) {
-  .site-links-icon {
-    display: none;
+  .header div.navigation .site-links-icon {
+    display: block;
   }
 }

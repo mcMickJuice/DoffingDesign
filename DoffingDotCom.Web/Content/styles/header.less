@@ -79,6 +79,7 @@
             width: 60px;
             right: 0;
             cursor: pointer;
+            display: none;
         }
 
         .site-links-icon:before {
@@ -130,14 +131,10 @@
                     border-radius: 0 0 3px 3px;
                 }
             }
+
+            .site-links-icon {
+                display: block;
+            }
         }
-    }
-}
-
-
-
-@media(min-width: @desktopSize) {
-    .site-links-icon {
-        display: none;
     }
 }
