@@ -1,11 +1,16 @@
 ﻿@using DoffingDotCom.Web.Services
 
+@{
+    string cookieToken, formToken;
+    AntiForgery.GetTokens(null, out cookieToken, out formToken);
+    var headerVal = cookieToken + ":" + formToken;
+}
 
 <div class="subscribe-form-block">
     <div class="callout">Sign up for my newsletter!</div>
     <div class="email-form">
         <div>
-            <input type="text" name="email" id="emailInput" placeholder="email address" autocomplete="nope"/>
+            <input type="text" name="email" id="emailInput" placeholder="email address" autocomplete="nope" />
 
         </div>
         <div>
@@ -16,87 +21,5 @@
 </div>
 
 <script>
-    @functions{
-
-        public string TokenHeaderValue()
-        {
-            string cookieToken, formToken;
-            AntiForgery.GetTokens(null, out cookieToken, out formToken);
-            return cookieToken + ":" + formToken;
-        }
-
-    }
-
-    (function () {
-        var $button = $('#subscribe'),
-            $emailForm = $('#emailInput'),
-            initialButtonText = $button.text(),
-            buttonResetDuration = 3000; 
-
-        $button.click(function (evt) {
-            evt.preventDefault();
-
-            var inputText = $emailForm.val();
-
-            var data = {
-                email: inputText
-            };
-
-            if (ns.isValidEmail(inputText) === false) {
-
-                $button.text('Invalid Email');
-                $button.addClass('invalid');
-
-                resetButtonTimeout(function() {
-                    $button.text(initialButtonText);
-                    $button.removeClass('invalid');
-                });
-
-                return;
-            }
-            
-            $button.text('Submitting...');
-
-            $.ajax("api/contact/newsletter", {
-                type: 'POST',
-                contentType: 'application/json',
-                data: JSON.stringify(data),
-
-                dataType: 'json',
-                headers: {
-                    '@RequestForgeryService.TokenHeader': '@RequestForgeryService.GetTokenHeaderValue()'
-                },
-                success: onSuccess,
-                error: function() {
-                    console.error('An error occurred subscribing to newsletter');
-                }
-            });
-        });
-
-        function onSuccess() {
-            $button.text('Submitted!');
-            $emailForm.val('');
-            resetButtonTimeout(function() {
-                $button.text(initialButtonText);
-            });
-        }
-
-        function resetButtonTimeout(callback) {
-            setTimeout(callback, buttonResetDuration);
-        }
-        //figure this out someday...
-        //function countDownLetters(selectorFunc, setterFunc) {
-        //    var timeToDelay = 30;
-        //    var val = selectorFunc();
-        //    while (val !== '') {
-        //        var oldVal = val;
-        //        val = oldVal.substring(0, oldVal.length - 1);
-        //        setTimeout(function() {
-        //            setterFunc(val);
-        //        }, timeToDelay);
-        //    }
-        //}
-
-
-    })()
+    ns.initNewsletterForm('@headerVal');
 </script>
