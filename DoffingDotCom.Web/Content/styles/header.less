@@ -77,10 +77,6 @@
         .site-links-icon:before {
             content: "";
             position: absolute;
-            /*top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;*/
             width: 30px;
             height: 26px;
             border-top: 15px double #414042;
@@ -95,12 +91,12 @@
                 right: 10%;
 
                 &.site-links {
-                    position: fixed;
+                    position: absolute;
                     display: none;
                     margin: auto;
                     width: 300px;
                     right: 2px;
-                    top: 60px;
+                    bottom: -200px;
                 }
 
                 &.site-links li {
@@ -110,6 +106,7 @@
                     border: 1px black solid;
                     display: block;
                     background-color: white;
+                    margin-right: 0 !important;
                 }
 
                 &.site-links li:first-child {
