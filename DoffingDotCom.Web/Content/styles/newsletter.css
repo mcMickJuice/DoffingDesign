@@ -5,6 +5,9 @@
   color: initial;
   text-decoration: none;
 }
+.newsletter {
+  width: 100%;
+}
 .subscribe-form-block {
   background-color: #FFEFEC;
   padding: 45px 0;
