@@ -57,7 +57,7 @@
             
             $button.text('Submitting...');
 
-            $.ajax("api/contact/newsletter", {
+            $.ajax("/api/contact/newsletter", {
                 type: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify(data),
