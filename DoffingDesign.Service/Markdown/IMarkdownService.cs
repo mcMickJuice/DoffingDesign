@@ -24,13 +24,12 @@ namespace DoffingDesign.Service.Markdown
 
         public string ConvertToHtml(string markdown)
         {
-            _markdown.SafeMode = true;
-            return _markdown.Transform(markdown);
+            return ConvertToHtml(markdown, true); //default is safemode
         }
 
         public string ConvertToHtml(string markdown, bool isSafe)
         {
-            _markdown.SafeMode = false;
+            _markdown.SafeMode = isSafe;
             return _markdown.Transform(markdown);
         }
     }

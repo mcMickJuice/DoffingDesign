@@ -25,7 +25,7 @@ namespace DoffingDesign.DAL.Mapping
                 ProjectId = dbEntity.AppSlug,
                 ProjectItems = dbEntity.ProjectItems.Select(_itemMapper.ToViewModel),
                 ProjectMarkdown = dbEntity.ProjectMarkdown,
-                ProjectHtml = _markdownService.ConvertToHtml(dbEntity.ProjectMarkdown),
+                ProjectHtml = _markdownService.ConvertToHtml(dbEntity.ProjectMarkdown, false),
                 ProjectType = dbEntity.ProjectType,
                 SortOrder = dbEntity.SortOrder,
                 Title = dbEntity.Title,
