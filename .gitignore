@@ -212,3 +212,6 @@ FakesAssemblies/
 
 # ignore DB folder
 [Dd][Bb]/
+
+#Ignore update folder
+Updates/
